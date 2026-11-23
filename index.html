@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Phòng Tập Bi-a Nút Số PRO (Diamond System Lab)</title>
+<title>Phòng Tập Bi-a Nút Số PRO (Diamond System Lab + Auto Bank Finder)</title>
 <style>
   :root {
     --bg: #0b111a;
@@ -14,6 +14,7 @@
     --accent-2: #f59e0b;
     --danger: #ef4444;
     --success: #10b981;
+    --purple: #a855f7;
     --text: #f1f5f9;
     --muted: #94a3b8;
   }
@@ -54,7 +55,7 @@
     align-items: center;
     gap: 8px;
     font-weight: 800;
-    font-size: 0.98rem;
+    font-size: 0.96rem;
     color: var(--accent);
     letter-spacing: 0.3px;
   }
@@ -64,7 +65,7 @@
     border: 1px solid rgba(56, 189, 248, 0.4);
     padding: 2px 7px;
     border-radius: 5px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: #bae6fd;
   }
 
@@ -81,7 +82,7 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 5px 9px;
-    font-size: 0.8rem;
+    font-size: 0.79rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.15s ease;
@@ -90,6 +91,19 @@
   select:hover, button:hover {
     border-color: var(--accent);
     background: #233349;
+  }
+
+  button.ai-find-btn {
+    background: linear-gradient(135deg, #7e22ce, #6b21a8);
+    border-color: #c084fc;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.35);
+  }
+
+  button.ai-find-btn:hover {
+    background: linear-gradient(135deg, #9333ea, #7e22ce);
+    transform: translateY(-1px);
   }
 
   button.add-ball-btn {
@@ -108,8 +122,8 @@
     background: linear-gradient(135deg, #10b981, #059669);
     border-color: #34d399;
     color: #fff;
-    padding: 6px 15px;
-    font-size: 0.88rem;
+    padding: 6px 14px;
+    font-size: 0.86rem;
     font-weight: 800;
     box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
   }
@@ -160,7 +174,7 @@
     border: 1px solid var(--border);
     padding: 4px 12px;
     border-radius: 999px;
-    font-size: 0.74rem;
+    font-size: 0.73rem;
     color: var(--muted);
     white-space: nowrap;
     pointer-events: none;
@@ -171,13 +185,13 @@
   }
 
   .sidebar {
-    width: 315px;
+    width: 335px;
     background: var(--panel);
     border-left: 1px solid var(--border);
-    padding: 11px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 8px;
     overflow-y: auto;
   }
 
@@ -185,16 +199,16 @@
     background: var(--panel-light);
     border: 1px solid var(--border);
     border-radius: 9px;
-    padding: 9px 10px;
+    padding: 8px 10px;
   }
 
   .card-title {
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.5px;
     color: var(--accent);
     font-weight: 700;
-    margin-bottom: 7px;
+    margin-bottom: 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -204,7 +218,7 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-bottom: 7px;
+    margin-bottom: 6px;
   }
 
   .control-row:last-child {
@@ -214,7 +228,7 @@
   .label-line {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: 0.79rem;
     color: var(--text);
   }
 
@@ -222,7 +236,7 @@
     color: var(--accent-2);
     font-weight: 700;
     font-family: monospace;
-    font-size: 0.85rem;
+    font-size: 0.84rem;
   }
 
   input[type="range"] {
@@ -235,24 +249,24 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;
-    margin-top: 4px;
+    margin-top: 3px;
   }
 
   .fine-btns button {
-    padding: 4px 0;
-    font-size: 0.75rem;
+    padding: 3px 0;
+    font-size: 0.74rem;
     font-family: monospace;
   }
 
   .spin-wrapper {
     display: flex;
     align-items: center;
-    gap: 11px;
+    gap: 10px;
   }
 
   #spinPad {
-    width: 78px;
-    height: 78px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     background: radial-gradient(circle at 32% 32%, #ffffff 0%, #e2e8f0 65%, #94a3b8 100%);
     border: 2px solid #475569;
@@ -277,8 +291,8 @@
   }
 
   #spinDot {
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
     background: #ef4444;
     border: 2px solid #fff;
@@ -291,28 +305,99 @@
   }
 
   .spin-info {
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     color: var(--muted);
-    line-height: 1.4;
+    line-height: 1.38;
   }
 
   .spin-info b {
     color: var(--text);
   }
 
-  .telemetry-list {
+  /* Danh sách gợi ý đường A băng */
+  .suggestions-list {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    max-height: 185px;
+    max-height: 165px;
     overflow-y: auto;
-    font-size: 0.77rem;
+  }
+
+  .sug-item {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    border-radius: 6px;
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .sug-item:hover {
+    background: rgba(126, 34, 206, 0.28);
+    border-color: #d8b4fe;
+    transform: translateX(2px);
+  }
+
+  .sug-item.active-sug {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #34d399;
+  }
+
+  .sug-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+
+  .sug-sub {
+    font-size: 0.71rem;
+    color: #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tag-kick {
+    background: rgba(168, 85, 247, 0.25);
+    color: #e9d5ff;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+  }
+
+  .tag-bank {
+    background: rgba(245, 158, 11, 0.25);
+    color: #fde68a;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+  }
+
+  .tag-direct {
+    background: rgba(56, 189, 248, 0.22);
+    color: #bae6fd;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+  }
+
+  .telemetry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 145px;
+    overflow-y: auto;
+    font-size: 0.75rem;
   }
 
   .tele-item {
     background: rgba(11, 17, 26, 0.65);
     border: 1px solid rgba(255,255,255,0.06);
-    padding: 5px 8px;
+    padding: 4px 8px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
@@ -323,46 +408,46 @@
   .badge-rail {
     background: rgba(56, 189, 248, 0.18);
     color: #7dd3fc;
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 4px;
     font-weight: 700;
-    font-size: 0.71rem;
+    font-size: 0.69rem;
   }
 
   .badge-obj {
     background: rgba(245, 158, 11, 0.22);
     color: #fde68a;
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 4px;
     font-weight: 700;
-    font-size: 0.71rem;
+    font-size: 0.69rem;
   }
 
   .badge-pot {
     background: rgba(16, 185, 129, 0.25);
     color: #6ee7b7;
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 4px;
     font-weight: 800;
-    font-size: 0.71rem;
+    font-size: 0.69rem;
   }
 
   .badge-scratch {
     background: rgba(239, 68, 68, 0.25);
     color: #fca5a5;
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 4px;
     font-weight: 800;
-    font-size: 0.71rem;
+    font-size: 0.69rem;
   }
 
   .badge-stop {
     background: rgba(148, 163, 184, 0.2);
     color: #e2e8f0;
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 4px;
     font-weight: 700;
-    font-size: 0.71rem;
+    font-size: 0.69rem;
   }
 
   @media (max-width: 900px) {
@@ -371,7 +456,7 @@
     }
     .sidebar {
       width: 100%;
-      height: 230px;
+      height: 245px;
       border-left: none;
       border-top: 1px solid var(--border);
       flex-direction: row;
@@ -379,7 +464,7 @@
       overflow-x: auto;
     }
     .card {
-      min-width: 255px;
+      min-width: 265px;
     }
     .hint-bar {
       display: none;
@@ -391,27 +476,29 @@
 
 <header>
   <div class="brand">
-    🎱 DIAMOND SYSTEM LAB <span>NÚT SỐ & LỖ CHUẨN</span>
+    🎱 DIAMOND SYSTEM LAB <span>AUTO BANK & KICK FINDER</span>
   </div>
   <div class="top-controls">
+    <button id="findShotsBtn" class="ai-find-btn">🧠 Gợi Ý Đường A Băng</button>
+
     <select id="scaleMode" title="Hệ thống đánh số nút">
-      <option value="0-8">Nút: 0 – 8 (Pool)</option>
-      <option value="50">Hệ thống 50 (10 – 80)</option>
+      <option value="0-8">Nút: 0 – 8</option>
+      <option value="50">Hệ thống 50</option>
     </select>
 
     <select id="presetSelect" title="Bài tập nút số mẫu">
       <option value="custom">📐 Thế bi mẫu...</option>
-      <option value="pot_direct">1. Cắt bi số 1 vào lỗ góc</option>
-      <option value="bank_1rail">2. A băng 1 băng đưa bi 1 vào lỗ</option>
-      <option value="escape_block">3. A băng vòng qua 2 bi chắn</option>
-      <option value="corner5_pot">4. Hệ thống 50 — Chạy 3 băng ăn bi</option>
+      <option value="escape_block">1. Bị 2 bi chắn — Tìm đường A băng</option>
+      <option value="bank_1rail">2. Thế Cân Băng 1 băng & 2 băng</option>
+      <option value="corner5_pot">3. Hệ thống 50 — Chạy 3 băng ăn bi</option>
+      <option value="pot_direct">4. Cắt bi cơ bản vào lỗ góc</option>
     </select>
 
-    <button id="addBallBtn" class="add-ball-btn">+ Thêm Bi Chắn</button>
+    <button id="addBallBtn" class="add-ball-btn">+ Bi Chắn</button>
     <button id="removeBallBtn" class="del-ball-btn">- Bớt Bi</button>
-    <button id="toggleGridBtn" class="active-toggle">📏 Lưới: BẬT</button>
-    <button id="resetPosBtn">↺ Xếp Lại Bàn</button>
-    <button id="shootBtn" class="shoot-btn">🚀 BẮN THỬ (Space)</button>
+    <button id="toggleGridBtn" class="active-toggle">📏 Lưới</button>
+    <button id="resetPosBtn">↺ Xếp Lại</button>
+    <button id="shootBtn" class="shoot-btn">🚀 BẮN (Space)</button>
   </div>
 </header>
 
@@ -419,16 +506,29 @@
   <div class="table-area" id="tableContainer">
     <canvas id="poolCanvas"></canvas>
     <div class="hint-bar">
-      💡 <b>Kéo thả từng viên bi</b> (bi Trắng hoặc các bi số 1..9) để xếp hình chắn • <b>Bấm/kéo trên bàn</b> xoay gậy • <b>⬅️➡️</b> chỉnh 0.1°
+      💡 Bấm <b>🧠 Gợi Ý Đường A Băng</b> để máy tự tìm mọi góc cân băng / a băng 1–3 băng vào lỗ • Kéo thả bi tự do để tạo thế khó
     </div>
   </div>
 
   <aside class="sidebar">
+    <!-- Bảng Gợi Ý Các Phương Án A Băng / Cân Băng -->
+    <div class="card" style="border-color: rgba(192, 132, 252, 0.45);">
+      <div class="card-title">
+        <span style="color:#e9d5ff;">🧠 Gợi Ý Đường Vào Lỗ</span>
+        <button id="scanAgainBtn" style="padding:2px 7px;font-size:0.68rem;border-color:#c084fc;color:#f3e8ff;">Quét lại</button>
+      </div>
+      <div class="suggestions-list" id="suggestionsList">
+        <div style="font-size:0.74rem;color:#94a3b8;padding:4px 0;">
+          Bấm <b>🧠 Gợi Ý Đường A Băng</b> để tự động quét nhiều phương án đánh vào lỗ (cân băng, a băng vòng bi chắn...).
+        </div>
+      </div>
+    </div>
+
     <!-- Góc & Lực -->
     <div class="card">
       <div class="card-title">
         <span>🎯 Góc Ngắm & Lực Đánh</span>
-        <span id="statusTag" style="color:#10b981;font-size:0.7rem;">● SẴN SÀNG</span>
+        <span id="statusTag" style="color:#10b981;font-size:0.68rem;">● SẴN SÀNG</span>
       </div>
 
       <div class="control-row">
@@ -436,7 +536,7 @@
           <span>Góc bắn (Độ)</span>
           <span class="val" id="angleVal">0.0°</span>
         </div>
-        <input type="range" id="angleSlider" min="-180" max="180" step="0.1" value="-26.5">
+        <input type="range" id="angleSlider" min="-180" max="180" step="0.1" value="-20.3">
         <div class="fine-btns">
           <button data-delta="-1">-1.0°</button>
           <button data-delta="-0.1">-0.1°</button>
@@ -445,7 +545,7 @@
         </div>
       </div>
 
-      <div class="control-row" style="margin-top:8px;">
+      <div class="control-row" style="margin-top:6px;">
         <div class="label-line">
           <span>Lực đánh (Tốc độ)</span>
           <span class="val" id="powerVal">75%</span>
@@ -458,17 +558,17 @@
     <div class="card">
       <div class="card-title">
         <span>🌀 Điểm Chạm Đầu Cơ (Áp Phê)</span>
-        <button id="resetSpinBtn" style="padding:2px 7px;font-size:0.7rem;">Tâm bi</button>
+        <button id="resetSpinBtn" style="padding:2px 7px;font-size:0.68rem;">Tâm bi</button>
       </div>
       <div class="spin-wrapper">
         <div id="spinPad" title="Bấm hoặc kéo chấm đỏ để chỉnh áp phê trái/phải, cule/trô">
           <div id="spinDot"></div>
         </div>
         <div class="spin-info">
-          <div>Áp phê ngang: <b id="sideSpinText">0% (Không xoáy)</b></div>
-          <div>Cule / Trô: <b id="topSpinText">0% (Giữa bi)</b></div>
-          <div style="margin-top:3px;font-size:0.71rem;color:#cbd5e1;">
-            * Áp phê đổi góc bật băng; Cule/Trô điều bi cái sau va chạm.
+          <div>Áp phê: <b id="sideSpinText">0% (Không xoáy)</b></div>
+          <div>Cule/Trô: <b id="topSpinText">0% (Giữa bi)</b></div>
+          <div style="margin-top:3px;font-size:0.69rem;color:#cbd5e1;">
+            * Đổi áp phê rồi bấm <b>Quét lại</b> để tìm đường a băng theo độ xoáy mới.
           </div>
         </div>
       </div>
@@ -477,7 +577,7 @@
     <!-- Thống kê điểm chạm nút số & Lỗ -->
     <div class="card" style="flex:1;display:flex;flex-direction:column;">
       <div class="card-title">
-        <span>📊 Quỹ Đạo, Nút Số & Lỗ</span>
+        <span>📊 Chi Tiết Nút Số & Lỗ</span>
         <span id="ballCountBadge" style="color:#38bdf8;">1 bi mục tiêu</span>
       </div>
       <div class="telemetry-list" id="telemetryList"></div>
@@ -491,19 +591,17 @@
   const ctx = canvas.getContext('2d');
   const container = document.getElementById('tableContainer');
 
-  // Kích thước chuẩn bàn bi-a tỷ lệ 2:1 (8x4 nút số)
   const TABLE_W = 1000;
   const TABLE_H = 500;
   const RAIL = 62;
   const FULL_W = TABLE_W + RAIL * 2;
   const FULL_H = TABLE_H + RAIL * 2;
   const BALL_R = 14;
-  const POCKET_R = 26; // Bán kính hút rơi lỗ chuẩn xác
+  const POCKET_R = 26;
 
   canvas.width = FULL_W;
   canvas.height = FULL_H;
 
-  // 6 lỗ trên bàn (tọa độ trong lòng bàn 0..1000 x 0..500)
   const POCKETS = [
     { id: 'Góc Trên-Trái', x: 0, y: 0, isCorner: true },
     { id: 'Lỗ Giữa Trên', x: TABLE_W / 2, y: -4, isCorner: false },
@@ -513,17 +611,16 @@
     { id: 'Góc Dưới-Phải', x: TABLE_W, y: TABLE_H, isCorner: true }
   ];
 
-  // Bảng màu chuẩn cho các bi mục tiêu số 1..9
   const BALL_STYLES = [
-    { num: 1, color: '#eab308', light: '#fef08a', dark: '#854d0e' }, // Vàng
-    { num: 2, color: '#2563eb', light: '#93c5fd', dark: '#1e3a8a' }, // Xanh dương
-    { num: 3, color: '#dc2626', light: '#fca5a5', dark: '#7f1d1d' }, // Đỏ
-    { num: 4, color: '#7c3aed', light: '#c4b5fd', dark: '#4c1d95' }, // Tím
-    { num: 5, color: '#ea580c', light: '#fdba74', dark: '#7c2d12' }, // Cam
-    { num: 6, color: '#16a34a', light: '#86efac', dark: '#14532d' }, // Xanh lá
-    { num: 7, color: '#991b1b', light: '#fca5a5', dark: '#450a0a' }, // Nâu đỏ
-    { num: 8, color: '#1e293b', light: '#64748b', dark: '#020617' }, // Đen
-    { num: 9, color: '#ca8a04', light: '#fef08a', dark: '#713f12' }  // Vàng sọc
+    { num: 1, color: '#eab308', light: '#fef08a', dark: '#854d0e' },
+    { num: 2, color: '#2563eb', light: '#93c5fd', dark: '#1e3a8a' },
+    { num: 3, color: '#dc2626', light: '#fca5a5', dark: '#7f1d1d' },
+    { num: 4, color: '#7c3aed', light: '#c4b5fd', dark: '#4c1d95' },
+    { num: 5, color: '#ea580c', light: '#fdba74', dark: '#7c2d12' },
+    { num: 6, color: '#16a34a', light: '#86efac', dark: '#14532d' },
+    { num: 7, color: '#991b1b', light: '#fca5a5', dark: '#450a0a' },
+    { num: 8, color: '#1e293b', light: '#64748b', dark: '#020617' },
+    { num: 9, color: '#ca8a04', light: '#fef08a', dark: '#713f12' }
   ];
 
   let scaleMode = '0-8';
@@ -531,27 +628,29 @@
   let isSimulating = false;
   let animFrameId = null;
 
-  // Bi cái
-  const cueBall = { id: 0, x: 250, y: 310, vx: 0, vy: 0, spinX: 0, spinY: 0, potted: false };
+  const cueBall = { id: 0, x: 250, y: 250, vx: 0, vy: 0, spinX: 0, spinY: 0, potted: false };
 
-  // Danh sách bi mục tiêu / bi chắn
+  // Khởi tạo mặc định thế bị chắn đường để test gợi ý a băng ngay
   let targetBalls = [
-    { id: 1, x: 750, y: 125, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] }
+    { id: 1, x: 750, y: 150, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] },
+    { id: 2, x: 470, y: 205, vx: 0, vy: 0, potted: false, style: BALL_STYLES[1] },
+    { id: 3, x: 520, y: 185, vx: 0, vy: 0, potted: false, style: BALL_STYLES[2] }
   ];
 
-  // Lưu trạng thái trước khi bắn để nút "Xếp Lại Bàn" khôi phục nhanh
   let savedSetup = {
-    cue: { x: 250, y: 310 },
-    targets: [{ id: 1, x: 750, y: 125 }]
+    cue: { x: 250, y: 250 },
+    targets: targetBalls.map(b => ({ id: b.id, x: b.x, y: b.y }))
   };
 
-  let aimAngleDeg = -20.3;
-  let shotPower = 75;
+  let aimAngleDeg = 32.5;
+  let shotPower = 82;
   let englishX = 0;
   let englishY = 0;
-
-  // Kéo thả: null | 'cue' | 'aim' | { type: 'target', index: number }
   let dragState = null;
+
+  // Danh sách các đường gợi ý đã tìm được
+  let foundSuggestions = [];
+  let selectedSugIndex = -1;
 
   // DOM Elements
   const angleSlider = document.getElementById('angleSlider');
@@ -563,6 +662,7 @@
   const sideSpinText = document.getElementById('sideSpinText');
   const topSpinText = document.getElementById('topSpinText');
   const telemetryList = document.getElementById('telemetryList');
+  const suggestionsList = document.getElementById('suggestionsList');
   const ballCountBadge = document.getElementById('ballCountBadge');
   const statusTag = document.getElementById('statusTag');
 
@@ -607,11 +707,11 @@
   }
 
   // =========================================================================
-  // ĐỘNG CƠ VẬT LÝ ĐA BI + HÚT RƠI LỖ CHUẨN XÁC
+  // ĐỘNG CƠ VẬT LÝ ĐA BI + HÚT RƠI LỖ
   // =========================================================================
-  function createSimState() {
-    const rad = (aimAngleDeg * Math.PI) / 180;
-    const speed = 3.5 + (shotPower / 100) * 26.5;
+  function createSimState(customAngle = aimAngleDeg, customPower = shotPower) {
+    const rad = (customAngle * Math.PI) / 180;
+    const speed = 3.5 + (customPower / 100) * 26.5;
 
     const allBalls = [
       {
@@ -663,13 +763,11 @@
     const balls = state.balls;
 
     for (let sub = 0; sub < 4; sub++) {
-      // 1. Di chuyển & Ma sát
       for (const b of balls) {
         if (b.potted) continue;
         b.x += b.vx * dt;
         b.y += b.vy * dt;
 
-        // Cule / Trô tự nhiên
         if (b.isCue && Math.abs(b.spinY) > 0.01) {
           const spd = Math.hypot(b.vx, b.vy);
           if (spd > 0.2) {
@@ -687,7 +785,6 @@
           b.vy = 0;
         }
 
-        // 2. Kiểm tra rơi vào 6 lỗ trước khi nảy thành băng góc
         const pocket = checkPocket(b);
         if (pocket) {
           b.potted = true;
@@ -705,7 +802,6 @@
           continue;
         }
 
-        // 3. Va chạm 4 thành băng (trừ khu vực miệng lỗ giữa/góc)
         let hitRail = null;
         if (b.x - BALL_R < 0) {
           b.x = BALL_R;
@@ -743,9 +839,10 @@
           hitRail = 'Băng Dưới';
         }
 
-        if (hitRail && events && b.isCue) {
+        if (hitRail && events) {
           events.push({
             type: 'rail',
+            ballId: b.id,
             rail: hitRail,
             x: b.x,
             y: b.y,
@@ -754,7 +851,6 @@
         }
       }
 
-      // 4. Va chạm đàn hồi giữa tất cả các cặp bi trên bàn
       for (let i = 0; i < balls.length; i++) {
         for (let j = i + 1; j < balls.length; j++) {
           const b1 = balls[i];
@@ -787,7 +883,6 @@
               b2.vx += impulse * nx;
               b2.vy += impulse * ny;
 
-              // Áp dụng Cule / Trô nếu bi 1 là bi cái
               if (b1.isCue && Math.abs(b1.spinY) > 0.01) {
                 const impactSpeed = Math.abs(velAlongNormal);
                 b1.vx += nx * b1.spinY * impactSpeed * 0.38;
@@ -815,9 +910,8 @@
     return balls.some(b => !b.potted && Math.hypot(b.vx, b.vy) > 0);
   }
 
-  // Dự đoán toàn bộ quỹ đạo của TẤT CẢ các bi trên bàn tới khi dừng hoặc rơi lỗ
-  function predictFullTrajectory() {
-    const state = createSimState();
+  function predictFullTrajectory(customAngle = aimAngleDeg, customPower = shotPower) {
+    const state = createSimState(customAngle, customPower);
     const paths = {};
     state.balls.forEach(b => {
       paths[b.id] = [{ x: b.x, y: b.y, potted: b.potted }];
@@ -845,10 +939,174 @@
   }
 
   // =========================================================================
-  // VẼ BÀN BI-A, LỖ, BI ĐÁNH SỐ & TIA QUỸ ĐẠO
+  // BỘ TÌM KIẾM THÔNG MINH CÁC ĐƯỜNG A BĂNG / CÂN BĂNG VÀO LỖ (360° SCANNER)
+  // =========================================================================
+  function findAllBankAndKickShots() {
+    if (isSimulating || cueBall.potted) return;
+
+    const results = [];
+    // Quét thô 720 góc (mỗi 0.5 độ) quanh bàn với lực đánh hiện tại
+    const stepDeg = 0.5;
+    for (let deg = -180; deg < 180; deg += stepDeg) {
+      const sim = evaluateCandidateAngle(deg, shotPower);
+      if (sim) {
+        results.push(sim);
+      }
+    }
+
+    // Gom nhóm các góc liền kề cho cùng một kiểu đánh (cùng lỗ, cùng bi, cùng số băng)
+    // rồi tinh chỉnh mịn 0.1 độ để chọn góc chuẩn tâm lỗ nhất
+    const grouped = [];
+    results.forEach(item => {
+      const existing = grouped.find(g =>
+        g.targetBallId === item.targetBallId &&
+        g.pocketId === item.pocketId &&
+        g.shotType === item.shotType &&
+        g.totalRails === item.totalRails &&
+        Math.abs(angleDiff(g.angle, item.angle)) < 14
+      );
+      if (!existing) {
+        grouped.push({ ...item, minAngle: item.angle, maxAngle: item.angle });
+      } else {
+        existing.maxAngle = item.angle;
+        // Chọn góc nằm chính giữa cửa sổ ăn bi (tỷ lệ vào lỗ cao nhất)
+        existing.angle = Number(((existing.minAngle + existing.maxAngle) / 2).toFixed(1));
+      }
+    });
+
+    // Sắp xếp ưu tiên các cú A Băng / Cân Băng (1-3 băng) lên trước, sau đó tới cắt trực tiếp
+    grouped.sort((a, b) => {
+      const scoreA = a.totalRails > 0 ? a.totalRails : 99;
+      const scoreB = b.totalRails > 0 ? b.totalRails : 99;
+      return scoreA - scoreB;
+    });
+
+    foundSuggestions = grouped.slice(0, 12);
+    selectedSugIndex = -1;
+    renderSuggestionsUI();
+    render();
+  }
+
+  function angleDiff(a, b) {
+    let d = a - b;
+    while (d > 180) d -= 360;
+    while (d < -180) d += 360;
+    return d;
+  }
+
+  function evaluateCandidateAngle(deg, power) {
+    const state = createSimState(deg, power);
+    const events = [];
+
+    for (let i = 0; i < 1600; i++) {
+      const alive = stepPhysics(state, events);
+      if (!alive) break;
+    }
+
+    // Loại bỏ nếu rơi bi cái (lỗi)
+    if (events.some(e => e.type === 'cue_scratch')) return null;
+
+    // Kiểm tra có bi mục tiêu nào rơi lỗ không
+    const potEvent = events.find(e => e.type === 'ball_potted');
+    if (!potEvent) return null;
+
+    const potIdx = events.indexOf(potEvent);
+    const priorEvents = events.slice(0, potIdx);
+
+    // Đếm số băng bi cái chạm trước khi chạm bi mục tiêu (A băng / Kick)
+    const firstHit = priorEvents.find(e => e.type === 'ball_hit' && e.b1 === 0);
+    if (!firstHit) return null;
+
+    const firstHitIdx = priorEvents.indexOf(firstHit);
+    const cueRailsBeforeHit = priorEvents
+      .slice(0, firstHitIdx)
+      .filter(e => e.type === 'rail' && e.ballId === 0);
+
+    // Đếm số băng bi mục tiêu đập trước khi rơi lỗ (Cân băng / Bank)
+    const objRailsBeforePot = priorEvents
+      .slice(firstHitIdx)
+      .filter(e => e.type === 'rail' && e.ballId === potEvent.ballId);
+
+    const cueRails = cueRailsBeforeHit.length;
+    const objRails = objRailsBeforePot.length;
+    const totalRails = cueRails + objRails;
+
+    let shotType = 'direct';
+    let typeLabel = 'Cắt trực tiếp';
+    let detailDesc = 'Đánh thẳng vào bi mục tiêu';
+
+    if (cueRails > 0 && objRails === 0) {
+      shotType = 'kick';
+      typeLabel = `A băng ${cueRails} băng`;
+      const railNames = cueRailsBeforeHit.map(r => `${r.rail} (${r.diamond})`).join(' → ');
+      detailDesc = `Chạm ${railNames}`;
+    } else if (cueRails === 0 && objRails > 0) {
+      shotType = 'bank';
+      typeLabel = `Cân băng ${objRails} băng`;
+      const railNames = objRailsBeforePot.map(r => `${r.rail} (${r.diamond})`).join(' → ');
+      detailDesc = `Bi ${potEvent.ballId} đập ${railNames}`;
+    } else if (cueRails > 0 && objRails > 0) {
+      shotType = 'combo_bank';
+      typeLabel = `A băng ${cueRails}B + Cân ${objRails}B`;
+      detailDesc = `Vòng ${cueRails} băng & cân ${objRails} băng`;
+    }
+
+    return {
+      angle: Number(deg.toFixed(1)),
+      targetBallId: potEvent.ballId,
+      pocketId: potEvent.pocket.id,
+      shotType,
+      typeLabel,
+      detailDesc,
+      totalRails
+    };
+  }
+
+  function renderSuggestionsUI() {
+    if (foundSuggestions.length === 0) {
+      suggestionsList.innerHTML = `
+        <div style="font-size:0.74rem;color:#fca5a5;padding:4px 0;">
+          Không tìm thấy đường vào lỗ ở mức lực <b>${shotPower}%</b> này. Thử tăng lực đánh hoặc chỉnh áp phê rồi bấm <b>Quét lại</b>!
+        </div>
+      `;
+      return;
+    }
+
+    suggestionsList.innerHTML = foundSuggestions.map((sug, idx) => {
+      const tagClass =
+        sug.shotType === 'direct' ? 'tag-direct' :
+        sug.shotType === 'bank' ? 'tag-bank' : 'tag-kick';
+      const activeClass = idx === selectedSugIndex ? 'active-sug' : '';
+
+      return `
+        <div class="sug-item ${activeClass}" data-idx="${idx}">
+          <div class="sug-top">
+            <span><span class="${tagClass}">${sug.typeLabel}</span> → Bi <b>${sug.targetBallId}</b></span>
+            <span style="color:#38bdf8;font-family:monospace;">${sug.angle.toFixed(1)}°</span>
+          </div>
+          <div class="sug-sub">
+            <span>${sug.detailDesc}</span>
+            <b style="color:#6ee7b7;">${sug.pocketId}</b>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    suggestionsList.querySelectorAll('.sug-item').forEach(el => {
+      el.addEventListener('click', () => {
+        const idx = parseInt(el.dataset.idx, 10);
+        selectedSugIndex = idx;
+        const chosen = foundSuggestions[idx];
+        setAngle(chosen.angle);
+        renderSuggestionsUI();
+      });
+    });
+  }
+
+  // =========================================================================
+  // VẼ BÀN BI-A, TIA GỢI Ý MỜ & QUỸ ĐẠO CHÍNH
   // =========================================================================
   function drawTable(pred) {
-    // Khung gỗ
     const woodGrad = ctx.createLinearGradient(0, 0, FULL_W, FULL_H);
     woodGrad.addColorStop(0, '#3e2212');
     woodGrad.addColorStop(0.5, '#59331d');
@@ -860,7 +1118,6 @@
     ctx.lineWidth = 2;
     ctx.strokeRect(4, 4, FULL_W - 8, FULL_H - 8);
 
-    // Mặt nỉ xanh
     const feltGrad = ctx.createRadialGradient(
       RAIL + TABLE_W / 2, RAIL + TABLE_H / 2, 60,
       RAIL + TABLE_W / 2, RAIL + TABLE_H / 2, TABLE_W * 0.65
@@ -874,7 +1131,6 @@
     ctx.lineWidth = 6;
     ctx.strokeRect(RAIL + 3, RAIL + 3, TABLE_W - 6, TABLE_H - 6);
 
-    // Lưới tọa độ nút số (8x4)
     if (showGrid) {
       ctx.save();
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.13)';
@@ -897,7 +1153,6 @@
       ctx.restore();
     }
 
-    // 3 chấm khai cuộc
     [250, 500, 750].forEach(sx => {
       ctx.fillStyle = 'rgba(255,255,255,0.35)';
       ctx.beginPath();
@@ -905,7 +1160,6 @@
       ctx.fill();
     });
 
-    // Vẽ 6 lỗ & hiệu ứng phát sáng nếu dự đoán có bi rơi lỗ
     const pottedEvents = pred ? pred.events.filter(e => e.type === 'ball_potted') : [];
     const scratchEvent = pred ? pred.events.find(e => e.type === 'cue_scratch') : null;
 
@@ -992,13 +1246,11 @@
       return;
     }
 
-    // Bóng đổ
     ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
     ctx.beginPath();
     ctx.arc(cx + 3, cy + 4, BALL_R, 0, Math.PI * 2);
     ctx.fill();
 
-    // Thân bi
     const grad = ctx.createRadialGradient(cx - 4, cy - 4, 2, cx, cy, BALL_R);
     if (isCue) {
       grad.addColorStop(0, '#ffffff');
@@ -1015,13 +1267,11 @@
     ctx.fill();
 
     if (isCue) {
-      // Điểm chạm đầu cơ
       ctx.fillStyle = '#ef4444';
       ctx.beginPath();
       ctx.arc(cx + englishX * 7, cy - englishY * 7, 2.8, 0, Math.PI * 2);
       ctx.fill();
     } else {
-      // Vòng trắng & Số trên bi mục tiêu
       ctx.fillStyle = '#ffffff';
       ctx.beginPath();
       ctx.arc(cx, cy, 6.8, 0, Math.PI * 2);
@@ -1080,8 +1330,41 @@
     ctx.restore();
   }
 
+  function drawSuggestedGhostRays() {
+    if (isSimulating || foundSuggestions.length === 0) return;
+
+    // Vẽ tia hướng xuất phát màu tím mờ cho tất cả các phương án A băng đã tìm thấy
+    foundSuggestions.forEach((sug, idx) => {
+      if (idx === selectedSugIndex) return;
+      const rad = (sug.angle * Math.PI) / 180;
+      const sx = RAIL + cueBall.x;
+      const sy = RAIL + cueBall.y;
+      const len = 115;
+
+      ctx.save();
+      ctx.strokeStyle = 'rgba(192, 132, 252, 0.45)';
+      ctx.lineWidth = 1.6;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(sx, sy);
+      ctx.lineTo(sx + Math.cos(rad) * len, sy + Math.sin(rad) * len);
+      ctx.stroke();
+
+      // Nhãn số phương án ở đầu tia
+      const tx = sx + Math.cos(rad) * (len + 12);
+      const ty = sy + Math.sin(rad) * (len + 12);
+      ctx.fillStyle = '#e9d5ff';
+      ctx.font = 'bold 10px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(`#${idx + 1}`, tx, ty);
+      ctx.restore();
+    });
+  }
+
   function drawPredictionOverlay(pred) {
     if (isSimulating) return;
+
+    drawSuggestedGhostRays();
 
     // 1. Quỹ đạo Bi Cái
     const cuePath = pred.paths[0];
@@ -1102,7 +1385,7 @@
       ctx.restore();
     }
 
-    // 2. Quỹ đạo của TẤT CẢ các bi mục tiêu bị va chạm
+    // 2. Quỹ đạo của các bi mục tiêu
     targetBalls.forEach(tb => {
       const path = pred.paths[tb.id];
       if (!path || path.length <= 2) return;
@@ -1136,10 +1419,10 @@
       drawBall(firstHit.x1, firstHit.y1, true, null, true);
     }
 
-    // 4. Các điểm chạm băng B1, B2...
+    // 4. Các điểm chạm băng của bi cái
     let railIdx = 0;
     pred.events.forEach(ev => {
-      if (ev.type === 'rail') {
+      if (ev.type === 'rail' && ev.ballId === 0) {
         railIdx++;
         if (railIdx <= 8) {
           const px = RAIL + ev.x;
@@ -1158,7 +1441,7 @@
       }
     });
 
-    // 5. Nhãn VÀO LỖ! / RƠI BI CÁI! trực tiếp trên miệng lỗ
+    // 5. Nhãn VÀO LỖ! / RƠI BI CÁI!
     pred.events.forEach(ev => {
       if (ev.type === 'ball_potted') {
         drawPocketBanner(ev.pocket, `🎯 BI ${ev.ballId} VÀO LỖ!`, '#10b981');
@@ -1182,7 +1465,7 @@
     ctx.strokeStyle = color;
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.roundRect(px - 52, py - 10, 104, 20, 6);
+    ctx.roundRect(px - 54, py - 10, 108, 20, 6);
     ctx.fill();
     ctx.stroke();
 
@@ -1226,7 +1509,6 @@
 
     let html = '';
 
-    // Ưu tiên báo bi rơi lỗ lên đầu
     pred.events.forEach(ev => {
       if (ev.type === 'ball_potted') {
         html += `
@@ -1245,24 +1527,23 @@
       }
     });
 
-    // Chạm băng
     const railEvents = pred.events.filter(e => e.type === 'rail');
     railEvents.slice(0, 6).forEach((ev, idx) => {
+      const who = ev.ballId === 0 ? 'Bi cái' : `Bi ${ev.ballId}`;
       html += `
         <div class="tele-item">
-          <span><span class="badge-rail">Băng ${idx + 1}</span> ${ev.rail}</span>
+          <span><span class="badge-rail">B${idx + 1}</span> ${who} → ${ev.rail}</span>
           <b style="color:#fde68a;font-family:monospace;">${ev.diamond}</b>
         </div>
       `;
     });
 
-    // Va chạm bi
     const hitEvents = pred.events.filter(e => e.type === 'ball_hit');
-    hitEvents.slice(0, 5).forEach(ev => {
+    hitEvents.slice(0, 4).forEach(ev => {
       const b1Name = ev.b1 === 0 ? 'Bi Cái' : `Bi ${ev.b1}`;
       html += `
         <div class="tele-item">
-          <span><span class="badge-obj">Chạm bi</span> ${b1Name} → Bi ${ev.b2}</span>
+          <span><span class="badge-obj">Chạm</span> ${b1Name} → Bi ${ev.b2}</span>
           <b style="color:#cbd5e1;font-family:monospace;">(${(ev.x2/125).toFixed(2)}, ${(ev.y2/125).toFixed(2)})</b>
         </div>
       `;
@@ -1272,7 +1553,7 @@
     if (!finalCue.potted) {
       html += `
         <div class="tele-item">
-          <span><span class="badge-stop">Dừng lại</span> Bi cái kết thúc</span>
+          <span><span class="badge-stop">Dừng</span> Bi cái kết thúc</span>
           <b style="color:#7dd3fc;font-family:monospace;">Nút (${(finalCue.x/125).toFixed(2)}, ${(finalCue.y/125).toFixed(2)})</b>
         </div>
       `;
@@ -1301,7 +1582,7 @@
   }
 
   // =========================================================================
-  // BẮN THẬT (CHẠY HOẠT HỌA VẬT LÝ)
+  // BẮN THẬT
   // =========================================================================
   function fireShot() {
     if (isSimulating || cueBall.potted) return;
@@ -1331,7 +1612,6 @@
       } else {
         isSimulating = false;
         if (cueBall.potted) {
-          // Tự động đặt lại bi cái lên bàn nếu lỡ rơi lỗ
           cueBall.potted = false;
           cueBall.x = 250;
           cueBall.y = 250;
@@ -1348,7 +1628,7 @@
   }
 
   // =========================================================================
-  // TƯƠNG TÁC CHUỘT / CẢM ỨNG & QUẢN LÝ BI CHẮN
+  // TƯƠNG TÁC & SỰ KIỆN
   // =========================================================================
   function getTableCoords(clientX, clientY) {
     const rect = canvas.getBoundingClientRect();
@@ -1399,6 +1679,7 @@
       cueBall.y = pt.y;
       clampBall(cueBall);
       saveCurrentPositions();
+      foundSuggestions = [];
       render();
     } else if (typeof dragState === 'object' && dragState.type === 'target') {
       const tb = targetBalls[dragState.index];
@@ -1406,6 +1687,7 @@
       tb.y = pt.y;
       clampBall(tb);
       saveCurrentPositions();
+      foundSuggestions = [];
       render();
     } else if (dragState === 'aim') {
       updateAimFromPoint(pt.x, pt.y);
@@ -1445,7 +1727,6 @@
     render();
   });
 
-  // Spin Pad
   let draggingSpin = false;
   function updateSpinFromEvent(e) {
     const rect = spinPad.getBoundingClientRect();
@@ -1500,40 +1781,42 @@
     render();
   });
 
-  // Thêm bi chắn (tối đa 9 bi)
+  document.getElementById('findShotsBtn').addEventListener('click', findAllBankAndKickShots);
+  document.getElementById('scanAgainBtn').addEventListener('click', findAllBankAndKickShots);
+
   document.getElementById('addBallBtn').addEventListener('click', () => {
     if (isSimulating || targetBalls.length >= 9) return;
     const nextId = targetBalls.length + 1;
     const style = BALL_STYLES[(nextId - 1) % BALL_STYLES.length];
-    // Đặt vị trí không đè lên bi có sẵn
     let nx = 375 + ((nextId * 75) % 450);
     let ny = 150 + ((nextId * 65) % 240);
     targetBalls.push({ id: nextId, x: nx, y: ny, vx: 0, vy: 0, potted: false, style });
     saveCurrentPositions();
+    foundSuggestions = [];
     render();
   });
 
-  // Bớt bi chắn (giữ lại ít nhất 1 bi)
   document.getElementById('removeBallBtn').addEventListener('click', () => {
     if (isSimulating || targetBalls.length <= 1) return;
     targetBalls.pop();
     saveCurrentPositions();
+    foundSuggestions = [];
     render();
   });
 
   document.getElementById('scaleMode').addEventListener('change', (e) => {
     scaleMode = e.target.value;
+    if (foundSuggestions.length > 0) findAllBankAndKickShots();
     render();
   });
 
   document.getElementById('toggleGridBtn').addEventListener('click', (e) => {
     showGrid = !showGrid;
-    e.target.textContent = showGrid ? '📏 Lưới: BẬT' : '📏 Lưới: TẮT';
+    e.target.textContent = showGrid ? '📏 Lưới' : '📏 Lưới (Tắt)';
     e.target.classList.toggle('active-toggle', showGrid);
     render();
   });
 
-  // Xếp lại bàn về vị trí trước cú bắn
   document.getElementById('resetPosBtn').addEventListener('click', () => {
     if (animFrameId) cancelAnimationFrame(animFrameId);
     isSimulating = false;
@@ -1558,29 +1841,13 @@
 
   document.getElementById('shootBtn').addEventListener('click', fireShot);
 
-  // Các thế bi mẫu luyện tập
   document.getElementById('presetSelect').addEventListener('change', (e) => {
     const v = e.target.value;
     if (animFrameId) cancelAnimationFrame(animFrameId);
     isSimulating = false;
     cueBall.potted = false;
 
-    if (v === 'pot_direct') {
-      cueBall.x = 250; cueBall.y = 310;
-      targetBalls = [
-        { id: 1, x: 750, y: 125, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] }
-      ];
-      shotPower = 72;
-      setAngle(-20.3);
-    } else if (v === 'bank_1rail') {
-      cueBall.x = 250; cueBall.y = 375;
-      targetBalls = [
-        { id: 1, x: 750, y: 250, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] }
-      ];
-      shotPower = 78;
-      setAngle(-43.6);
-    } else if (v === 'escape_block') {
-      // 2 bi đỏ/xanh chắn thẳng đường, phải a băng dưới để ăn bi vàng số 1
+    if (v === 'escape_block') {
       cueBall.x = 250; cueBall.y = 250;
       targetBalls = [
         { id: 1, x: 750, y: 150, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] },
@@ -1588,7 +1855,12 @@
         { id: 3, x: 520, y: 185, vx: 0, vy: 0, potted: false, style: BALL_STYLES[2] }
       ];
       shotPower = 82;
-      setAngle(32.5);
+    } else if (v === 'bank_1rail') {
+      cueBall.x = 250; cueBall.y = 375;
+      targetBalls = [
+        { id: 1, x: 750, y: 250, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] }
+      ];
+      shotPower = 78;
     } else if (v === 'corner5_pot') {
       scaleMode = '50';
       document.getElementById('scaleMode').value = '50';
@@ -1598,13 +1870,18 @@
         { id: 2, x: 500, y: 420, vx: 0, vy: 0, potted: false, style: BALL_STYLES[1] }
       ];
       shotPower = 85;
-      setAngle(-42.0);
+    } else if (v === 'pot_direct') {
+      cueBall.x = 250; cueBall.y = 310;
+      targetBalls = [
+        { id: 1, x: 750, y: 125, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] }
+      ];
+      shotPower = 72;
     }
 
     powerSlider.value = shotPower;
     powerVal.textContent = `${shotPower}%`;
     saveCurrentPositions();
-    render();
+    findAllBankAndKickShots();
   });
 
   window.addEventListener('keydown', (e) => {
@@ -1621,6 +1898,7 @@
   });
 
   saveCurrentPositions();
+  findAllBankAndKickShots();
   render();
 })();
 </script>
