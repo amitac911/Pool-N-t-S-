@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Phòng Tập Bi-a Nút Số (Diamond System Lab)</title>
+<title>Phòng Tập Bi-a Nút Số PRO (Diamond System Lab)</title>
 <style>
   :root {
     --bg: #0b111a;
@@ -44,7 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
     z-index: 10;
   }
@@ -54,7 +54,7 @@
     align-items: center;
     gap: 8px;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 0.98rem;
     color: var(--accent);
     letter-spacing: 0.3px;
   }
@@ -64,14 +64,14 @@
     border: 1px solid rgba(56, 189, 248, 0.4);
     padding: 2px 7px;
     border-radius: 5px;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: #bae6fd;
   }
 
   .top-controls {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
   }
 
@@ -80,8 +80,8 @@
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 5px 10px;
-    font-size: 0.82rem;
+    padding: 5px 9px;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.15s ease;
@@ -92,22 +92,24 @@
     background: #233349;
   }
 
-  button.primary {
-    background: linear-gradient(135deg, #0284c7, #0369a1);
+  button.add-ball-btn {
+    background: rgba(56, 189, 248, 0.16);
     border-color: #38bdf8;
-    color: #fff;
+    color: #e0f2fe;
   }
 
-  button.primary:hover {
-    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  button.del-ball-btn {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #fecaca;
   }
 
   button.shoot-btn {
     background: linear-gradient(135deg, #10b981, #059669);
     border-color: #34d399;
     color: #fff;
-    padding: 7px 16px;
-    font-size: 0.9rem;
+    padding: 6px 15px;
+    font-size: 0.88rem;
     font-weight: 800;
     box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
   }
@@ -154,11 +156,11 @@
     bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(15, 23, 42, 0.88);
+    background: rgba(15, 23, 42, 0.9);
     border: 1px solid var(--border);
     padding: 4px 12px;
     border-radius: 999px;
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     color: var(--muted);
     white-space: nowrap;
     pointer-events: none;
@@ -169,13 +171,13 @@
   }
 
   .sidebar {
-    width: 310px;
+    width: 315px;
     background: var(--panel);
     border-left: 1px solid var(--border);
-    padding: 12px;
+    padding: 11px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
     overflow-y: auto;
   }
 
@@ -183,16 +185,16 @@
     background: var(--panel-light);
     border: 1px solid var(--border);
     border-radius: 9px;
-    padding: 10px;
+    padding: 9px 10px;
   }
 
   .card-title {
-    font-size: 0.76rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.6px;
     color: var(--accent);
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -202,7 +204,7 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
   }
 
   .control-row:last-child {
@@ -245,12 +247,12 @@
   .spin-wrapper {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 11px;
   }
 
   #spinPad {
-    width: 82px;
-    height: 82px;
+    width: 78px;
+    height: 78px;
     border-radius: 50%;
     background: radial-gradient(circle at 32% 32%, #ffffff 0%, #e2e8f0 65%, #94a3b8 100%);
     border: 2px solid #475569;
@@ -289,9 +291,9 @@
   }
 
   .spin-info {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: var(--muted);
-    line-height: 1.45;
+    line-height: 1.4;
   }
 
   .spin-info b {
@@ -302,9 +304,9 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    max-height: 165px;
+    max-height: 185px;
     overflow-y: auto;
-    font-size: 0.78rem;
+    font-size: 0.77rem;
   }
 
   .tele-item {
@@ -315,6 +317,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 6px;
   }
 
   .badge-rail {
@@ -323,25 +326,43 @@
     padding: 1px 6px;
     border-radius: 4px;
     font-weight: 700;
-    font-size: 0.72rem;
+    font-size: 0.71rem;
   }
 
   .badge-obj {
-    background: rgba(239, 68, 68, 0.2);
-    color: #fca5a5;
+    background: rgba(245, 158, 11, 0.22);
+    color: #fde68a;
     padding: 1px 6px;
     border-radius: 4px;
     font-weight: 700;
-    font-size: 0.72rem;
+    font-size: 0.71rem;
   }
 
-  .badge-stop {
-    background: rgba(16, 185, 129, 0.2);
+  .badge-pot {
+    background: rgba(16, 185, 129, 0.25);
     color: #6ee7b7;
     padding: 1px 6px;
     border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.71rem;
+  }
+
+  .badge-scratch {
+    background: rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.71rem;
+  }
+
+  .badge-stop {
+    background: rgba(148, 163, 184, 0.2);
+    color: #e2e8f0;
+    padding: 1px 6px;
+    border-radius: 4px;
     font-weight: 700;
-    font-size: 0.72rem;
+    font-size: 0.71rem;
   }
 
   @media (max-width: 900px) {
@@ -358,7 +379,7 @@
       overflow-x: auto;
     }
     .card {
-      min-width: 250px;
+      min-width: 255px;
     }
     .hint-bar {
       display: none;
@@ -370,25 +391,26 @@
 
 <header>
   <div class="brand">
-    🎱 DIAMOND SYSTEM LAB <span>NÚT SỐ 100% QUỸ ĐẠO</span>
+    🎱 DIAMOND SYSTEM LAB <span>NÚT SỐ & LỖ CHUẨN</span>
   </div>
   <div class="top-controls">
     <select id="scaleMode" title="Hệ thống đánh số nút">
-      <option value="0-8">Thang Nút: 0 – 8 (Chuẩn Pool)</option>
-      <option value="50">Thang Nút: Hệ thống 50 (10 – 80)</option>
+      <option value="0-8">Nút: 0 – 8 (Pool)</option>
+      <option value="50">Hệ thống 50 (10 – 80)</option>
     </select>
 
     <select id="presetSelect" title="Bài tập nút số mẫu">
-      <option value="custom">📐 Bài tập mẫu (Chọn nhanh)...</option>
-      <option value="1bank">1 Băng Cơ Bản (Góc tới = Góc phản xạ)</option>
-      <option value="corner5">Hệ thống 50 — Chạy 3 băng góc dọn bi</option>
-      <option value="2rail">A băng 2 băng chéo bàn</option>
-      <option value="cutshot">Cắt bi mục tiêu & Điều bi cái dừng</option>
+      <option value="custom">📐 Thế bi mẫu...</option>
+      <option value="pot_direct">1. Cắt bi số 1 vào lỗ góc</option>
+      <option value="bank_1rail">2. A băng 1 băng đưa bi 1 vào lỗ</option>
+      <option value="escape_block">3. A băng vòng qua 2 bi chắn</option>
+      <option value="corner5_pot">4. Hệ thống 50 — Chạy 3 băng ăn bi</option>
     </select>
 
-    <button id="toggleTargetBtn" class="active-toggle">🔴 Bi Mục Tiêu: BẬT</button>
-    <button id="toggleGridBtn" class="active-toggle">📏 Lưới Nút: BẬT</button>
-    <button id="resetPosBtn">↺ Đặt Lại Vị Trí</button>
+    <button id="addBallBtn" class="add-ball-btn">+ Thêm Bi Chắn</button>
+    <button id="removeBallBtn" class="del-ball-btn">- Bớt Bi</button>
+    <button id="toggleGridBtn" class="active-toggle">📏 Lưới: BẬT</button>
+    <button id="resetPosBtn">↺ Xếp Lại Bàn</button>
     <button id="shootBtn" class="shoot-btn">🚀 BẮN THỬ (Space)</button>
   </div>
 </header>
@@ -397,7 +419,7 @@
   <div class="table-area" id="tableContainer">
     <canvas id="poolCanvas"></canvas>
     <div class="hint-bar">
-      💡 <b>Kéo thả trực tiếp</b> bi Trắng hoặc bi Đỏ vào bất kỳ nút số nào • <b>Bấm/kéo trên bàn</b> để xoay gậy • <b>Mũi tên ⬅️➡️</b> chỉnh góc 0.1°
+      💡 <b>Kéo thả từng viên bi</b> (bi Trắng hoặc các bi số 1..9) để xếp hình chắn • <b>Bấm/kéo trên bàn</b> xoay gậy • <b>⬅️➡️</b> chỉnh 0.1°
     </div>
   </div>
 
@@ -425,7 +447,7 @@
 
       <div class="control-row" style="margin-top:8px;">
         <div class="label-line">
-          <span>Lực đánh (Tốc độ ban đầu)</span>
+          <span>Lực đánh (Tốc độ)</span>
           <span class="val" id="powerVal">75%</span>
         </div>
         <input type="range" id="powerSlider" min="10" max="100" step="1" value="75">
@@ -445,22 +467,20 @@
         <div class="spin-info">
           <div>Áp phê ngang: <b id="sideSpinText">0% (Không xoáy)</b></div>
           <div>Cule / Trô: <b id="topSpinText">0% (Giữa bi)</b></div>
-          <div style="margin-top:4px;font-size:0.72rem;color:#cbd5e1;">
-            * Áp phê trái/phải làm đổi góc bật ra khi chạm băng.
+          <div style="margin-top:3px;font-size:0.71rem;color:#cbd5e1;">
+            * Áp phê đổi góc bật băng; Cule/Trô điều bi cái sau va chạm.
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Thống kê điểm chạm nút số -->
+    <!-- Thống kê điểm chạm nút số & Lỗ -->
     <div class="card" style="flex:1;display:flex;flex-direction:column;">
       <div class="card-title">
-        <span>📊 Tọa Độ Nút Số & Điểm Dừng</span>
-        <span id="bounceCountBadge" style="color:#f59e0b;">0 băng</span>
+        <span>📊 Quỹ Đạo, Nút Số & Lỗ</span>
+        <span id="ballCountBadge" style="color:#38bdf8;">1 bi mục tiêu</span>
       </div>
-      <div class="telemetry-list" id="telemetryList">
-        <!-- Render tự động -->
-      </div>
+      <div class="telemetry-list" id="telemetryList"></div>
     </div>
   </aside>
 </div>
@@ -474,33 +494,64 @@
   // Kích thước chuẩn bàn bi-a tỷ lệ 2:1 (8x4 nút số)
   const TABLE_W = 1000;
   const TABLE_H = 500;
-  const RAIL = 62; // Độ dày thành băng gỗ chứa nút số
+  const RAIL = 62;
   const FULL_W = TABLE_W + RAIL * 2;
   const FULL_H = TABLE_H + RAIL * 2;
   const BALL_R = 14;
+  const POCKET_R = 26; // Bán kính hút rơi lỗ chuẩn xác
 
   canvas.width = FULL_W;
   canvas.height = FULL_H;
 
-  // Trạng thái hệ thống
-  let scaleMode = '0-8'; // '0-8' hoặc '50'
-  let showTargetBall = true;
+  // 6 lỗ trên bàn (tọa độ trong lòng bàn 0..1000 x 0..500)
+  const POCKETS = [
+    { id: 'Góc Trên-Trái', x: 0, y: 0, isCorner: true },
+    { id: 'Lỗ Giữa Trên', x: TABLE_W / 2, y: -4, isCorner: false },
+    { id: 'Góc Trên-Phải', x: TABLE_W, y: 0, isCorner: true },
+    { id: 'Góc Dưới-Trái', x: 0, y: TABLE_H, isCorner: true },
+    { id: 'Lỗ Giữa Dưới', x: TABLE_W / 2, y: TABLE_H + 4, isCorner: false },
+    { id: 'Góc Dưới-Phải', x: TABLE_W, y: TABLE_H, isCorner: true }
+  ];
+
+  // Bảng màu chuẩn cho các bi mục tiêu số 1..9
+  const BALL_STYLES = [
+    { num: 1, color: '#eab308', light: '#fef08a', dark: '#854d0e' }, // Vàng
+    { num: 2, color: '#2563eb', light: '#93c5fd', dark: '#1e3a8a' }, // Xanh dương
+    { num: 3, color: '#dc2626', light: '#fca5a5', dark: '#7f1d1d' }, // Đỏ
+    { num: 4, color: '#7c3aed', light: '#c4b5fd', dark: '#4c1d95' }, // Tím
+    { num: 5, color: '#ea580c', light: '#fdba74', dark: '#7c2d12' }, // Cam
+    { num: 6, color: '#16a34a', light: '#86efac', dark: '#14532d' }, // Xanh lá
+    { num: 7, color: '#991b1b', light: '#fca5a5', dark: '#450a0a' }, // Nâu đỏ
+    { num: 8, color: '#1e293b', light: '#64748b', dark: '#020617' }, // Đen
+    { num: 9, color: '#ca8a04', light: '#fef08a', dark: '#713f12' }  // Vàng sọc
+  ];
+
+  let scaleMode = '0-8';
   let showGrid = true;
   let isSimulating = false;
   let animFrameId = null;
 
-  // Vật thể bi (tọa độ trong lòng bàn 0..1000 x 0..500)
-  const cueBall = { x: 250, y: 375, vx: 0, vy: 0, spinX: 0, spinY: 0, color: '#ffffff', label: 'Cái' };
-  const objBall = { x: 625, y: 125, vx: 0, vy: 0, color: '#ef4444', label: 'Đỏ' };
+  // Bi cái
+  const cueBall = { id: 0, x: 250, y: 310, vx: 0, vy: 0, spinX: 0, spinY: 0, potted: false };
 
-  // Tham số cú đánh
-  let aimAngleDeg = -33.7;
-  let shotPower = 75; // 10..100
-  let englishX = 0;   // -1 (trái) .. +1 (phải)
-  let englishY = 0;   // -1 (trô/dưới) .. +1 (cule/trên)
+  // Danh sách bi mục tiêu / bi chắn
+  let targetBalls = [
+    { id: 1, x: 750, y: 125, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] }
+  ];
 
-  // Tương tác kéo thả
-  let dragTarget = null; // 'cue' | 'obj' | 'aim'
+  // Lưu trạng thái trước khi bắn để nút "Xếp Lại Bàn" khôi phục nhanh
+  let savedSetup = {
+    cue: { x: 250, y: 310 },
+    targets: [{ id: 1, x: 750, y: 125 }]
+  };
+
+  let aimAngleDeg = -20.3;
+  let shotPower = 75;
+  let englishX = 0;
+  let englishY = 0;
+
+  // Kéo thả: null | 'cue' | 'aim' | { type: 'target', index: number }
+  let dragState = null;
 
   // DOM Elements
   const angleSlider = document.getElementById('angleSlider');
@@ -512,10 +563,9 @@
   const sideSpinText = document.getElementById('sideSpinText');
   const topSpinText = document.getElementById('topSpinText');
   const telemetryList = document.getElementById('telemetryList');
-  const bounceCountBadge = document.getElementById('bounceCountBadge');
+  const ballCountBadge = document.getElementById('ballCountBadge');
   const statusTag = document.getElementById('statusTag');
 
-  // Resize canvas vừa khít khung nhìn
   function fitCanvas() {
     const pad = 24;
     const availW = container.clientWidth - pad;
@@ -533,86 +583,98 @@
   window.addEventListener('resize', fitCanvas);
   fitCanvas();
 
-  // Chuyển đổi tọa độ thực trên bàn sang chỉ số nút số
-  function formatDiamondCoord(x, y, railName) {
-    // 1 ô nút số = 125px (1000 / 8 = 125, 500 / 4 = 125)
-    const nx = x / 125; // 0 .. 8
-    const ny = y / 125; // 0 .. 4
+  function saveCurrentPositions() {
+    savedSetup = {
+      cue: { x: cueBall.x, y: cueBall.y },
+      targets: targetBalls.map(b => ({ id: b.id, x: b.x, y: b.y }))
+    };
+  }
 
+  function formatDiamondCoord(x, y, railName) {
+    const nx = x / 125;
+    const ny = y / 125;
     if (scaleMode === '0-8') {
       if (railName === 'Băng Trên' || railName === 'Băng Dưới') {
-        return `Nút ${nx.toFixed(2)} (ngang)`;
-      } else {
-        return `Nút ${ny.toFixed(2)} (dọc)`;
+        return `Nút ${nx.toFixed(2)}`;
       }
+      return `Nút ${ny.toFixed(2)}`;
     } else {
-      // Hệ thống 50 (Corner 5): Góc dưới-trái = 0, Góc trên-trái = 50, Góc trên-phải = 10..40
-      if (railName === 'Băng Trên') {
-        const val = 50 - nx * 5; // 50 -> 10
-        return `Số ${val.toFixed(1)}`;
-      }
-      if (railName === 'Băng Dưới') {
-        const val = nx * 5; // 0 -> 40
-        return `Số ${val.toFixed(1)}`;
-      }
-      if (railName === 'Băng Trái') {
-        const val = (4 - ny) * 12.5; // 0 -> 50
-        return `Số ${val.toFixed(1)}`;
-      }
-      const val = (4 - ny) * 10;
-      return `Số ${val.toFixed(1)}`;
+      if (railName === 'Băng Trên') return `Số ${(50 - nx * 5).toFixed(1)}`;
+      if (railName === 'Băng Dưới') return `Số ${(nx * 5).toFixed(1)}`;
+      if (railName === 'Băng Trái') return `Số ${((4 - ny) * 12.5).toFixed(1)}`;
+      return `Số ${((4 - ny) * 10).toFixed(1)}`;
     }
   }
 
   // =========================================================================
-  // MÔ PHỎNG VẬT LÝ CHÍNH XÁC ĐẾN KHI BI DỪNG HẲN (DÙNG CHO CẢ DỰ ĐOÁN & BẮN THẬT)
+  // ĐỘNG CƠ VẬT LÝ ĐA BI + HÚT RƠI LỖ CHUẨN XÁC
   // =========================================================================
-  function createSimState(cBall, oBall, angleDeg, power, engX, engY, hasObj) {
-    const rad = (angleDeg * Math.PI) / 180;
-    const speed = 3.5 + (power / 100) * 26.5; // Tốc độ từ 3.5 đến 30 px/step
-    return {
-      cue: {
-        x: cBall.x,
-        y: cBall.y,
+  function createSimState() {
+    const rad = (aimAngleDeg * Math.PI) / 180;
+    const speed = 3.5 + (shotPower / 100) * 26.5;
+
+    const allBalls = [
+      {
+        id: 0,
+        isCue: true,
+        x: cueBall.x,
+        y: cueBall.y,
         vx: Math.cos(rad) * speed,
         vy: Math.sin(rad) * speed,
-        spinX: engX,
-        spinY: engY,
-        active: true
+        spinX: englishX,
+        spinY: englishY,
+        potted: false,
+        style: null
       },
-      obj: {
-        x: oBall.x,
-        y: oBall.y,
+      ...targetBalls.map(b => ({
+        id: b.id,
+        isCue: false,
+        x: b.x,
+        y: b.y,
         vx: 0,
         vy: 0,
-        active: hasObj
-      }
-    };
+        spinX: 0,
+        spinY: 0,
+        potted: b.potted,
+        style: b.style
+      }))
+    ];
+
+    return { balls: allBalls };
   }
 
-  function stepPhysics(state, events, stepIndex) {
-    const dt = 0.25; // Chia nhỏ bước thời gian để không bao giờ xuyên băng hoặc xuyên bi
-    const friction = Math.pow(0.9915, dt); // Ma sát mặt nỉ chuẩn
-    const railRestitution = 0.86; // Độ nảy thành băng
-    const ballRestitution = 0.96; // Độ nảy giữa 2 bi
+  function checkPocket(ball) {
+    for (let i = 0; i < POCKETS.length; i++) {
+      const p = POCKETS[i];
+      const dist = Math.hypot(ball.x - p.x, ball.y - p.y);
+      const catchRadius = p.isCorner ? POCKET_R + 3 : POCKET_R;
+      if (dist <= catchRadius) {
+        return p;
+      }
+    }
+    return null;
+  }
 
-    const balls = state.obj.active ? [state.cue, state.obj] : [state.cue];
+  function stepPhysics(state, events) {
+    const dt = 0.25;
+    const friction = Math.pow(0.9915, dt);
+    const railRestitution = 0.86;
+    const ballRestitution = 0.96;
+    const balls = state.balls;
 
     for (let sub = 0; sub < 4; sub++) {
-      // 1. Cập nhật vị trí & ma sát
+      // 1. Di chuyển & Ma sát
       for (const b of balls) {
-        if (!b.active) continue;
+        if (b.potted) continue;
         b.x += b.vx * dt;
         b.y += b.vy * dt;
 
-        // Hiệu ứng Cule / Trô nhẹ sau va chạm
-        if (b === state.cue && Math.abs(b.spinY) > 0.01) {
+        // Cule / Trô tự nhiên
+        if (b.isCue && Math.abs(b.spinY) > 0.01) {
           const spd = Math.hypot(b.vx, b.vy);
           if (spd > 0.2) {
-            const dirX = b.vx / spd;
-            const dirY = b.vy / spd;
-            b.vx += dirX * b.spinY * 0.045 * dt;
-            b.vy += dirY * b.spinY * 0.045 * dt;
+            b.vx += (b.vx / spd) * b.spinY * 0.045 * dt;
+            b.vy += (b.vy / spd) * b.spinY * 0.045 * dt;
             b.spinY *= Math.pow(0.96, dt);
           }
         }
@@ -624,18 +686,31 @@
           b.vx = 0;
           b.vy = 0;
         }
-      }
 
-      // 2. Va chạm thành băng (4 băng)
-      for (const b of balls) {
-        if (!b.active) continue;
+        // 2. Kiểm tra rơi vào 6 lỗ trước khi nảy thành băng góc
+        const pocket = checkPocket(b);
+        if (pocket) {
+          b.potted = true;
+          b.x = pocket.x;
+          b.y = pocket.y;
+          b.vx = 0;
+          b.vy = 0;
+          if (events) {
+            events.push({
+              type: b.isCue ? 'cue_scratch' : 'ball_potted',
+              ballId: b.id,
+              pocket: pocket
+            });
+          }
+          continue;
+        }
+
+        // 3. Va chạm 4 thành băng (trừ khu vực miệng lỗ giữa/góc)
         let hitRail = null;
-
         if (b.x - BALL_R < 0) {
           b.x = BALL_R;
           b.vx = -b.vx * railRestitution;
-          if (b === state.cue && Math.abs(b.spinX) > 0.01) {
-            // Áp phê trái/phải đổi góc bật theo phương tiếp tuyến
+          if (b.isCue && Math.abs(b.spinX) > 0.01) {
             b.vy -= b.spinX * Math.abs(b.vx) * 0.34;
             b.spinX *= 0.65;
           }
@@ -643,7 +718,7 @@
         } else if (b.x + BALL_R > TABLE_W) {
           b.x = TABLE_W - BALL_R;
           b.vx = -b.vx * railRestitution;
-          if (b === state.cue && Math.abs(b.spinX) > 0.01) {
+          if (b.isCue && Math.abs(b.spinX) > 0.01) {
             b.vy += b.spinX * Math.abs(b.vx) * 0.34;
             b.spinX *= 0.65;
           }
@@ -653,7 +728,7 @@
         if (b.y - BALL_R < 0) {
           b.y = BALL_R;
           b.vy = -b.vy * railRestitution;
-          if (b === state.cue && Math.abs(b.spinX) > 0.01) {
+          if (b.isCue && Math.abs(b.spinX) > 0.01) {
             b.vx += b.spinX * Math.abs(b.vy) * 0.34;
             b.spinX *= 0.65;
           }
@@ -661,14 +736,14 @@
         } else if (b.y + BALL_R > TABLE_H) {
           b.y = TABLE_H - BALL_R;
           b.vy = -b.vy * railRestitution;
-          if (b === state.cue && Math.abs(b.spinX) > 0.01) {
+          if (b.isCue && Math.abs(b.spinX) > 0.01) {
             b.vx -= b.spinX * Math.abs(b.vy) * 0.34;
             b.spinX *= 0.65;
           }
           hitRail = 'Băng Dưới';
         }
 
-        if (hitRail && events && b === state.cue) {
+        if (hitRail && events && b.isCue) {
           events.push({
             type: 'rail',
             rail: hitRail,
@@ -679,92 +754,101 @@
         }
       }
 
-      // 3. Va chạm giữa Bi Cái và Bi Mục Tiêu
-      if (state.obj.active) {
-        const dx = state.obj.x - state.cue.x;
-        const dy = state.obj.y - state.cue.y;
-        const dist = Math.hypot(dx, dy);
-        const minDist = BALL_R * 2;
+      // 4. Va chạm đàn hồi giữa tất cả các cặp bi trên bàn
+      for (let i = 0; i < balls.length; i++) {
+        for (let j = i + 1; j < balls.length; j++) {
+          const b1 = balls[i];
+          const b2 = balls[j];
+          if (b1.potted || b2.potted) continue;
 
-        if (dist > 0 && dist < minDist) {
-          const nx = dx / dist;
-          const ny = dy / dist;
+          const dx = b2.x - b1.x;
+          const dy = b2.y - b1.y;
+          const dist = Math.hypot(dx, dy);
+          const minDist = BALL_R * 2;
 
-          // Tách 2 bi khỏi chồng lấn
-          const overlap = minDist - dist;
-          state.cue.x -= nx * overlap * 0.5;
-          state.cue.y -= ny * overlap * 0.5;
-          state.obj.x += nx * overlap * 0.5;
-          state.obj.y += ny * overlap * 0.5;
+          if (dist > 0 && dist < minDist) {
+            const nx = dx / dist;
+            const ny = dy / dist;
 
-          // Tách vận tốc theo phương pháp tuyến & tiếp tuyến
-          const rvx = state.obj.vx - state.cue.vx;
-          const rvy = state.obj.vy - state.cue.vy;
-          const velAlongNormal = rvx * nx + rvy * ny;
+            const overlap = minDist - dist;
+            b1.x -= nx * overlap * 0.5;
+            b1.y -= ny * overlap * 0.5;
+            b2.x += nx * overlap * 0.5;
+            b2.y += ny * overlap * 0.5;
 
-          if (velAlongNormal < 0) {
-            const impulse = -(1 + ballRestitution) * velAlongNormal * 0.5;
-            state.cue.vx -= impulse * nx;
-            state.cue.vy -= impulse * ny;
-            state.obj.vx += impulse * nx;
-            state.obj.vy += impulse * ny;
+            const rvx = b2.vx - b1.vx;
+            const rvy = b2.vy - b1.vy;
+            const velAlongNormal = rvx * nx + rvy * ny;
 
-            // Áp dụng Cule / Trô mạnh ngay thời điểm chạm bi mục tiêu
-            const impactSpeed = Math.abs(velAlongNormal);
-            state.cue.vx += nx * state.cue.spinY * impactSpeed * 0.38;
-            state.cue.vy += ny * state.cue.spinY * impactSpeed * 0.38;
-            state.cue.spinY *= 0.25;
+            if (velAlongNormal < 0) {
+              const impulse = -(1 + ballRestitution) * velAlongNormal * 0.5;
+              b1.vx -= impulse * nx;
+              b1.vy -= impulse * ny;
+              b2.vx += impulse * nx;
+              b2.vy += impulse * ny;
 
-            if (events) {
-              events.push({
-                type: 'hit_obj',
-                x: state.cue.x,
-                y: state.cue.y,
-                objX: state.obj.x,
-                objY: state.obj.y
-              });
+              // Áp dụng Cule / Trô nếu bi 1 là bi cái
+              if (b1.isCue && Math.abs(b1.spinY) > 0.01) {
+                const impactSpeed = Math.abs(velAlongNormal);
+                b1.vx += nx * b1.spinY * impactSpeed * 0.38;
+                b1.vy += ny * b1.spinY * impactSpeed * 0.38;
+                b1.spinY *= 0.25;
+              }
+
+              if (events) {
+                events.push({
+                  type: 'ball_hit',
+                  b1: b1.id,
+                  b2: b2.id,
+                  x1: b1.x,
+                  y1: b1.y,
+                  x2: b2.x,
+                  y2: b2.y
+                });
+              }
             }
           }
         }
       }
     }
 
-    const cueMoving = Math.hypot(state.cue.vx, state.cue.vy) > 0;
-    const objMoving = state.obj.active && Math.hypot(state.obj.vx, state.obj.vy) > 0;
-    return cueMoving || objMoving;
+    return balls.some(b => !b.potted && Math.hypot(b.vx, b.vy) > 0);
   }
 
-  // Chạy mô phỏng toàn bộ quỹ đạo từ lúc bắn đến khi DỪNG HẲN
+  // Dự đoán toàn bộ quỹ đạo của TẤT CẢ các bi trên bàn tới khi dừng hoặc rơi lỗ
   function predictFullTrajectory() {
-    const state = createSimState(cueBall, objBall, aimAngleDeg, shotPower, englishX, englishY, showTargetBall);
-    const cuePath = [{ x: state.cue.x, y: state.cue.y }];
-    const objPath = showTargetBall ? [{ x: state.obj.x, y: state.obj.y }] : [];
+    const state = createSimState();
+    const paths = {};
+    state.balls.forEach(b => {
+      paths[b.id] = [{ x: b.x, y: b.y, potted: b.potted }];
+    });
     const events = [];
 
     const maxSteps = 2200;
     for (let i = 0; i < maxSteps; i++) {
-      const alive = stepPhysics(state, events, i);
-      cuePath.push({ x: state.cue.x, y: state.cue.y });
-      if (showTargetBall) {
-        objPath.push({ x: state.obj.x, y: state.obj.y });
-      }
+      const alive = stepPhysics(state, events);
+      state.balls.forEach(b => {
+        const arr = paths[b.id];
+        const last = arr[arr.length - 1];
+        if (!last.potted) {
+          arr.push({ x: b.x, y: b.y, potted: b.potted });
+        }
+      });
       if (!alive) break;
     }
 
     return {
-      cuePath,
-      objPath,
+      paths,
       events,
-      cueEnd: { x: state.cue.x, y: state.cue.y },
-      objEnd: showTargetBall ? { x: state.obj.x, y: state.obj.y } : null
+      finalBalls: state.balls
     };
   }
 
   // =========================================================================
-  // VẼ BÀN BI-A, NÚT SỐ & TOÀN BỘ ĐƯỜNG BÓNG
+  // VẼ BÀN BI-A, LỖ, BI ĐÁNH SỐ & TIA QUỸ ĐẠO
   // =========================================================================
-  function drawTable() {
-    // Khung gỗ ngoài
+  function drawTable(pred) {
+    // Khung gỗ
     const woodGrad = ctx.createLinearGradient(0, 0, FULL_W, FULL_H);
     woodGrad.addColorStop(0, '#3e2212');
     woodGrad.addColorStop(0.5, '#59331d');
@@ -772,12 +856,11 @@
     ctx.fillStyle = woodGrad;
     ctx.fillRect(0, 0, FULL_W, FULL_H);
 
-    // Viền chỉ vàng sang trọng quanh thành băng
     ctx.strokeStyle = 'rgba(245, 158, 11, 0.35)';
     ctx.lineWidth = 2;
     ctx.strokeRect(4, 4, FULL_W - 8, FULL_H - 8);
 
-    // Mặt nỉ bàn bi-a xanh Tournament Blue
+    // Mặt nỉ xanh
     const feltGrad = ctx.createRadialGradient(
       RAIL + TABLE_W / 2, RAIL + TABLE_H / 2, 60,
       RAIL + TABLE_W / 2, RAIL + TABLE_H / 2, TABLE_W * 0.65
@@ -787,18 +870,16 @@
     ctx.fillStyle = feltGrad;
     ctx.fillRect(RAIL, RAIL, TABLE_W, TABLE_H);
 
-    // Bóng đổ thành băng xuống mặt nỉ
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.55)';
     ctx.lineWidth = 6;
     ctx.strokeRect(RAIL + 3, RAIL + 3, TABLE_W - 6, TABLE_H - 6);
 
-    // Lưới tọa độ nút số (8x4 ô)
+    // Lưới tọa độ nút số (8x4)
     if (showGrid) {
       ctx.save();
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.13)';
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 4]);
-
       for (let i = 1; i < 8; i++) {
         const gx = RAIL + i * 125;
         ctx.beginPath();
@@ -816,7 +897,7 @@
       ctx.restore();
     }
 
-    // Chấm khai cuộc (Foot spot & Head spot)
+    // 3 chấm khai cuộc
     [250, 500, 750].forEach(sx => {
       ctx.fillStyle = 'rgba(255,255,255,0.35)';
       ctx.beginPath();
@@ -824,22 +905,38 @@
       ctx.fill();
     });
 
-    // Vẽ 6 lỗ góc & lỗ giữa (dạng trực quan chuẩn bàn Pool)
-    const pockets = [
-      [RAIL, RAIL], [RAIL + TABLE_W / 2, RAIL - 4], [RAIL + TABLE_W, RAIL],
-      [RAIL, RAIL + TABLE_H], [RAIL + TABLE_W / 2, RAIL + TABLE_H + 4], [RAIL + TABLE_W, RAIL + TABLE_H]
-    ];
-    pockets.forEach(([px, py]) => {
-      ctx.fillStyle = '#090d14';
+    // Vẽ 6 lỗ & hiệu ứng phát sáng nếu dự đoán có bi rơi lỗ
+    const pottedEvents = pred ? pred.events.filter(e => e.type === 'ball_potted') : [];
+    const scratchEvent = pred ? pred.events.find(e => e.type === 'cue_scratch') : null;
+
+    POCKETS.forEach(p => {
+      const px = RAIL + p.x;
+      const py = RAIL + p.y;
+      const r = p.isCorner ? 23 : 21;
+
+      const isTargetPocket = pottedEvents.some(e => e.pocket.id === p.id);
+      const isScratchPocket = scratchEvent && scratchEvent.pocket.id === p.id;
+
+      ctx.save();
+      if (isScratchPocket) {
+        ctx.shadowColor = '#ef4444';
+        ctx.shadowBlur = 22;
+      } else if (isTargetPocket) {
+        ctx.shadowColor = '#10b981';
+        ctx.shadowBlur = 22;
+      }
+
+      ctx.fillStyle = '#06090f';
       ctx.beginPath();
-      ctx.arc(px, py, 20, 0, Math.PI * 2);
+      ctx.arc(px, py, r, 0, Math.PI * 2);
       ctx.fill();
-      ctx.strokeStyle = '#94a3b8';
-      ctx.lineWidth = 2;
+
+      ctx.strokeStyle = isScratchPocket ? '#ef4444' : isTargetPocket ? '#10b981' : '#94a3b8';
+      ctx.lineWidth = (isTargetPocket || isScratchPocket) ? 3.5 : 2;
       ctx.stroke();
+      ctx.restore();
     });
 
-    // Vẽ hệ thống NÚT SỐ (Diamonds) trên cả 4 thành băng
     drawDiamonds();
   }
 
@@ -847,32 +944,23 @@
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
-    // Băng trên & Băng dưới (0 .. 8)
     for (let i = 0; i <= 8; i++) {
       const dx = RAIL + i * 125;
       const topLabel = scaleMode === '0-8' ? `${i}` : `${50 - i * 5}`;
       const botLabel = scaleMode === '0-8' ? `${i}` : `${i * 5}`;
-
-      // Băng trên
       drawDiamondMarker(dx, RAIL * 0.56, topLabel, dx, RAIL * 0.24);
-      // Băng dưới
       drawDiamondMarker(dx, RAIL + TABLE_H + RAIL * 0.44, botLabel, dx, RAIL + TABLE_H + RAIL * 0.76);
     }
 
-    // Băng trái & Băng phải (0 .. 4)
     for (let j = 1; j <= 3; j++) {
       const dy = RAIL + j * 125;
       const sideLabel = scaleMode === '0-8' ? `${j}` : `${(4 - j) * 12.5}`;
-
-      // Băng trái
       drawDiamondMarker(RAIL * 0.56, dy, sideLabel, RAIL * 0.24, dy);
-      // Băng phải
       drawDiamondMarker(RAIL + TABLE_W + RAIL * 0.44, dy, sideLabel, RAIL + TABLE_W + RAIL * 0.76, dy);
     }
   }
 
   function drawDiamondMarker(mx, my, text, tx, ty) {
-    // Viên kim cương khảm trai trên thành băng
     ctx.fillStyle = '#fde68a';
     ctx.beginPath();
     ctx.moveTo(mx, my - 5);
@@ -882,20 +970,19 @@
     ctx.closePath();
     ctx.fill();
 
-    // Số nút rõ nét
     ctx.fillStyle = '#f8fafc';
     ctx.font = 'bold 13px monospace';
     ctx.fillText(text, tx, ty);
   }
 
-  function drawBall(x, y, color, label, isGhost = false) {
+  function drawBall(x, y, isCue, style, isGhost = false) {
     const cx = RAIL + x;
     const cy = RAIL + y;
 
     ctx.save();
     if (isGhost) {
-      ctx.globalAlpha = 0.45;
-      ctx.strokeStyle = color;
+      ctx.globalAlpha = 0.5;
+      ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 2;
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
@@ -905,41 +992,53 @@
       return;
     }
 
-    // Bóng đổ dưới mặt bàn
+    // Bóng đổ
     ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
     ctx.beginPath();
     ctx.arc(cx + 3, cy + 4, BALL_R, 0, Math.PI * 2);
     ctx.fill();
 
-    // Thân bi 3D
+    // Thân bi
     const grad = ctx.createRadialGradient(cx - 4, cy - 4, 2, cx, cy, BALL_R);
-    if (color === '#ffffff') {
+    if (isCue) {
       grad.addColorStop(0, '#ffffff');
       grad.addColorStop(0.75, '#e2e8f0');
       grad.addColorStop(1, '#94a3b8');
     } else {
-      grad.addColorStop(0, '#fca5a5');
-      grad.addColorStop(0.45, '#ef4444');
-      grad.addColorStop(1, '#7f1d1d');
+      grad.addColorStop(0, style.light);
+      grad.addColorStop(0.45, style.color);
+      grad.addColorStop(1, style.dark);
     }
     ctx.fillStyle = grad;
     ctx.beginPath();
     ctx.arc(cx, cy, BALL_R, 0, Math.PI * 2);
     ctx.fill();
 
-    // Hiển thị điểm chạm đầu cơ (áp phê) ngay trên bi cái
-    if (color === '#ffffff') {
+    if (isCue) {
+      // Điểm chạm đầu cơ
       ctx.fillStyle = '#ef4444';
       ctx.beginPath();
       ctx.arc(cx + englishX * 7, cy - englishY * 7, 2.8, 0, Math.PI * 2);
       ctx.fill();
+    } else {
+      // Vòng trắng & Số trên bi mục tiêu
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(cx, cy, 6.8, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'bold 9.5px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(style.num, cx, cy + 0.5);
     }
 
     ctx.restore();
   }
 
   function drawCueStick() {
-    if (isSimulating) return;
+    if (isSimulating || cueBall.potted) return;
     const rad = (aimAngleDeg * Math.PI) / 180;
     const cx = RAIL + cueBall.x;
     const cy = RAIL + cueBall.y;
@@ -952,7 +1051,6 @@
     const y2 = cy - Math.sin(rad) * (pullBack + stickLen);
 
     ctx.save();
-    // Bóng gậy
     ctx.strokeStyle = 'rgba(0,0,0,0.4)';
     ctx.lineWidth = 8;
     ctx.lineCap = 'round';
@@ -961,7 +1059,6 @@
     ctx.lineTo(x2 + 4, y2 + 6);
     ctx.stroke();
 
-    // Thân gậy
     const cueGrad = ctx.createLinearGradient(x1, y1, x2, y2);
     cueGrad.addColorStop(0, '#fef3c7');
     cueGrad.addColorStop(0.35, '#d97706');
@@ -974,7 +1071,6 @@
     ctx.lineTo(x2, y2);
     ctx.stroke();
 
-    // Đầu lơ xanh
     ctx.strokeStyle = '#38bdf8';
     ctx.lineWidth = 6.5;
     ctx.beginPath();
@@ -987,46 +1083,60 @@
   function drawPredictionOverlay(pred) {
     if (isSimulating) return;
 
-    // 1. Vẽ quỹ đạo FULL của Bi Cái (từ lúc bắn tới khi dừng hẳn)
-    if (pred.cuePath.length > 1) {
+    // 1. Quỹ đạo Bi Cái
+    const cuePath = pred.paths[0];
+    if (cuePath && cuePath.length > 1) {
       ctx.save();
       ctx.strokeStyle = '#38bdf8';
       ctx.lineWidth = 2.6;
       ctx.shadowColor = 'rgba(56, 189, 248, 0.7)';
       ctx.shadowBlur = 8;
       ctx.beginPath();
-      ctx.moveTo(RAIL + pred.cuePath[0].x, RAIL + pred.cuePath[0].y);
-      for (let i = 1; i < pred.cuePath.length; i += 2) {
-        ctx.lineTo(RAIL + pred.cuePath[i].x, RAIL + pred.cuePath[i].y);
+      ctx.moveTo(RAIL + cuePath[0].x, RAIL + cuePath[0].y);
+      for (let i = 1; i < cuePath.length; i += 2) {
+        ctx.lineTo(RAIL + cuePath[i].x, RAIL + cuePath[i].y);
       }
-      ctx.lineTo(RAIL + pred.cueEnd.x, RAIL + pred.cueEnd.y);
+      const lastCue = cuePath[cuePath.length - 1];
+      ctx.lineTo(RAIL + lastCue.x, RAIL + lastCue.y);
       ctx.stroke();
       ctx.restore();
     }
 
-    // 2. Vẽ quỹ đạo FULL của Bi Mục Tiêu (nếu có va chạm)
-    const hitEvent = pred.events.find(e => e.type === 'hit_obj');
-    if (showTargetBall && hitEvent && pred.objPath.length > 1) {
+    // 2. Quỹ đạo của TẤT CẢ các bi mục tiêu bị va chạm
+    targetBalls.forEach(tb => {
+      const path = pred.paths[tb.id];
+      if (!path || path.length <= 2) return;
+      const start = path[0];
+      const end = path[path.length - 1];
+      if (Math.hypot(end.x - start.x, end.y - start.y) < 1 && !end.potted) return;
+
       ctx.save();
-      ctx.strokeStyle = '#f87171';
+      ctx.strokeStyle = tb.style.light;
       ctx.lineWidth = 2.6;
       ctx.setLineDash([7, 5]);
-      ctx.shadowColor = 'rgba(239, 68, 68, 0.7)';
+      ctx.shadowColor = tb.style.color;
       ctx.shadowBlur = 8;
       ctx.beginPath();
-      ctx.moveTo(RAIL + pred.objPath[0].x, RAIL + pred.objPath[0].y);
-      for (let i = 1; i < pred.objPath.length; i += 2) {
-        ctx.lineTo(RAIL + pred.objPath[i].x, RAIL + pred.objPath[i].y);
+      ctx.moveTo(RAIL + path[0].x, RAIL + path[0].y);
+      for (let i = 1; i < path.length; i += 2) {
+        ctx.lineTo(RAIL + path[i].x, RAIL + path[i].y);
       }
-      ctx.lineTo(RAIL + pred.objEnd.x, RAIL + pred.objEnd.y);
+      ctx.lineTo(RAIL + end.x, RAIL + end.y);
       ctx.stroke();
       ctx.restore();
 
-      // Ghost ball tại thời điểm chạm bi mục tiêu
-      drawBall(hitEvent.x, hitEvent.y, '#ffffff', '', true);
+      if (!end.potted) {
+        drawStopMarker(end.x, end.y, tb.style.light, `DỪNG BI ${tb.id}`);
+      }
+    });
+
+    // 3. Ghost ball tại điểm chạm đầu tiên
+    const firstHit = pred.events.find(e => e.type === 'ball_hit' && e.b1 === 0);
+    if (firstHit) {
+      drawBall(firstHit.x1, firstHit.y1, true, null, true);
     }
 
-    // 3. Đánh dấu các điểm nảy băng (B1, B2, B3...) kèm số nút
+    // 4. Các điểm chạm băng B1, B2...
     let railIdx = 0;
     pred.events.forEach(ev => {
       if (ev.type === 'rail') {
@@ -1039,20 +1149,49 @@
           ctx.beginPath();
           ctx.arc(px, py, 5, 0, Math.PI * 2);
           ctx.fill();
-
           ctx.font = 'bold 11px monospace';
           ctx.fillStyle = '#fef3c7';
+          ctx.textAlign = 'center';
           ctx.fillText(`B${railIdx}`, px, py - 11);
           ctx.restore();
         }
       }
     });
 
-    // 4. Vẽ VÒNG TRÒN ĐIỂM DỪNG KẾT THÚC CÚ BẮN
-    drawStopMarker(pred.cueEnd.x, pred.cueEnd.y, '#10b981', 'DỪNG BI CÁI');
-    if (showTargetBall && hitEvent && pred.objEnd) {
-      drawStopMarker(pred.objEnd.x, pred.objEnd.y, '#ef4444', 'DỪNG BI ĐỎ');
+    // 5. Nhãn VÀO LỖ! / RƠI BI CÁI! trực tiếp trên miệng lỗ
+    pred.events.forEach(ev => {
+      if (ev.type === 'ball_potted') {
+        drawPocketBanner(ev.pocket, `🎯 BI ${ev.ballId} VÀO LỖ!`, '#10b981');
+      } else if (ev.type === 'cue_scratch') {
+        drawPocketBanner(ev.pocket, `⚠️ RƠI BI CÁI!`, '#ef4444');
+      }
+    });
+
+    // 6. Điểm dừng bi cái
+    const finalCue = pred.finalBalls[0];
+    if (!finalCue.potted) {
+      drawStopMarker(finalCue.x, finalCue.y, '#38bdf8', 'DỪNG BI CÁI');
     }
+  }
+
+  function drawPocketBanner(pocket, text, color) {
+    const px = RAIL + pocket.x;
+    const py = RAIL + pocket.y + (pocket.y < TABLE_H / 2 ? 32 : -32);
+    ctx.save();
+    ctx.fillStyle = 'rgba(11, 17, 26, 0.92)';
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(px - 52, py - 10, 104, 20, 6);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = color;
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, px, py);
+    ctx.restore();
   }
 
   function drawStopMarker(x, y, color, label) {
@@ -1065,7 +1204,6 @@
     ctx.arc(cx, cy, BALL_R + 2, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Tâm chữ thập điểm dừng
     ctx.beginPath();
     ctx.moveTo(cx - 5, cy);
     ctx.lineTo(cx + 5, cy);
@@ -1073,8 +1211,7 @@
     ctx.lineTo(cx, cy + 5);
     ctx.stroke();
 
-    // Nhãn điểm dừng
-    ctx.fillStyle = 'rgba(11, 17, 26, 0.85)';
+    ctx.fillStyle = 'rgba(11, 17, 26, 0.86)';
     ctx.fillRect(cx - 42, cy + BALL_R + 5, 84, 16);
     ctx.fillStyle = color;
     ctx.font = 'bold 10px sans-serif';
@@ -1084,11 +1221,33 @@
   }
 
   function updateTelemetryUI(pred) {
-    const railEvents = pred.events.filter(e => e.type === 'rail');
-    bounceCountBadge.textContent = `${railEvents.length} băng`;
+    const activeTargets = targetBalls.filter(b => !b.potted).length;
+    ballCountBadge.textContent = `${activeTargets} bi trên bàn`;
 
     let html = '';
-    railEvents.slice(0, 8).forEach((ev, idx) => {
+
+    // Ưu tiên báo bi rơi lỗ lên đầu
+    pred.events.forEach(ev => {
+      if (ev.type === 'ball_potted') {
+        html += `
+          <div class="tele-item" style="border-color: rgba(16,185,129,0.5);">
+            <span><span class="badge-pot">VÀO LỖ</span> Bi số <b>${ev.ballId}</b></span>
+            <b style="color:#6ee7b7;">${ev.pocket.id}</b>
+          </div>
+        `;
+      } else if (ev.type === 'cue_scratch') {
+        html += `
+          <div class="tele-item" style="border-color: rgba(239,68,68,0.6);">
+            <span><span class="badge-scratch">LỖI</span> Rơi bi cái</span>
+            <b style="color:#fca5a5;">${ev.pocket.id}</b>
+          </div>
+        `;
+      }
+    });
+
+    // Chạm băng
+    const railEvents = pred.events.filter(e => e.type === 'rail');
+    railEvents.slice(0, 6).forEach((ev, idx) => {
       html += `
         <div class="tele-item">
           <span><span class="badge-rail">Băng ${idx + 1}</span> ${ev.rail}</span>
@@ -1097,59 +1256,72 @@
       `;
     });
 
-    const hitObj = pred.events.find(e => e.type === 'hit_obj');
-    if (hitObj) {
+    // Va chạm bi
+    const hitEvents = pred.events.filter(e => e.type === 'ball_hit');
+    hitEvents.slice(0, 5).forEach(ev => {
+      const b1Name = ev.b1 === 0 ? 'Bi Cái' : `Bi ${ev.b1}`;
       html += `
         <div class="tele-item">
-          <span><span class="badge-obj">Chạm Bi Đỏ</span> Vị trí tiếp xúc</span>
-          <b style="color:#fca5a5;font-family:monospace;">(${(hitObj.x/125).toFixed(2)}, ${(hitObj.y/125).toFixed(2)})</b>
+          <span><span class="badge-obj">Chạm bi</span> ${b1Name} → Bi ${ev.b2}</span>
+          <b style="color:#cbd5e1;font-family:monospace;">(${(ev.x2/125).toFixed(2)}, ${(ev.y2/125).toFixed(2)})</b>
+        </div>
+      `;
+    });
+
+    const finalCue = pred.finalBalls[0];
+    if (!finalCue.potted) {
+      html += `
+        <div class="tele-item">
+          <span><span class="badge-stop">Dừng lại</span> Bi cái kết thúc</span>
+          <b style="color:#7dd3fc;font-family:monospace;">Nút (${(finalCue.x/125).toFixed(2)}, ${(finalCue.y/125).toFixed(2)})</b>
         </div>
       `;
     }
-
-    html += `
-      <div class="tele-item">
-        <span><span class="badge-stop">Kết thúc</span> Bi cái dừng tại</span>
-        <b style="color:#6ee7b7;font-family:monospace;">Nút (${(pred.cueEnd.x/125).toFixed(2)}, ${(pred.cueEnd.y/125).toFixed(2)})</b>
-      </div>
-    `;
 
     telemetryList.innerHTML = html;
   }
 
   function render() {
-    drawTable();
     const pred = !isSimulating ? predictFullTrajectory() : null;
+    drawTable(pred);
     if (pred) {
       drawPredictionOverlay(pred);
       updateTelemetryUI(pred);
     }
 
-    if (showTargetBall) {
-      drawBall(objBall.x, objBall.y, objBall.color, objBall.label);
+    targetBalls.forEach(tb => {
+      if (!tb.potted) {
+        drawBall(tb.x, tb.y, false, tb.style);
+      }
+    });
+    if (!cueBall.potted) {
+      drawBall(cueBall.x, cueBall.y, true, null);
     }
-    drawBall(cueBall.x, cueBall.y, cueBall.color, cueBall.label);
     drawCueStick();
   }
 
   // =========================================================================
-  // BẮN THẬT (CHẠY HOẠT HỌA VẬT LÝ TỪNG KHUNG HÌNH)
+  // BẮN THẬT (CHẠY HOẠT HỌA VẬT LÝ)
   // =========================================================================
   function fireShot() {
-    if (isSimulating) return;
+    if (isSimulating || cueBall.potted) return;
     isSimulating = true;
     statusTag.textContent = '● ĐANG CHẠY BI...';
     statusTag.style.color = '#f59e0b';
 
-    const state = createSimState(cueBall, objBall, aimAngleDeg, shotPower, englishX, englishY, showTargetBall);
+    const state = createSimState();
 
     function loop() {
-      const alive = stepPhysics(state, null, 0);
-      cueBall.x = state.cue.x;
-      cueBall.y = state.cue.y;
-      if (showTargetBall) {
-        objBall.x = state.obj.x;
-        objBall.y = state.obj.y;
+      const alive = stepPhysics(state, null);
+
+      cueBall.x = state.balls[0].x;
+      cueBall.y = state.balls[0].y;
+      cueBall.potted = state.balls[0].potted;
+
+      for (let i = 0; i < targetBalls.length; i++) {
+        targetBalls[i].x = state.balls[i + 1].x;
+        targetBalls[i].y = state.balls[i + 1].y;
+        targetBalls[i].potted = state.balls[i + 1].potted;
       }
 
       render();
@@ -1158,8 +1330,17 @@
         animFrameId = requestAnimationFrame(loop);
       } else {
         isSimulating = false;
-        statusTag.textContent = '● ĐÃ DỪNG HẲN';
-        statusTag.style.color = '#10b981';
+        if (cueBall.potted) {
+          // Tự động đặt lại bi cái lên bàn nếu lỡ rơi lỗ
+          cueBall.potted = false;
+          cueBall.x = 250;
+          cueBall.y = 250;
+          statusTag.textContent = '⚠️ RƠI BI CÁI (ĐÃ ĐẶT LẠI)';
+          statusTag.style.color = '#ef4444';
+        } else {
+          statusTag.textContent = '● SẴN SÀNG';
+          statusTag.style.color = '#10b981';
+        }
         render();
       }
     }
@@ -1167,7 +1348,7 @@
   }
 
   // =========================================================================
-  // ĐIỀU KHIỂN CHUỘT / CẢM ỨNG & UI
+  // TƯƠNG TÁC CHUỘT / CẢM ỨNG & QUẢN LÝ BI CHẮN
   // =========================================================================
   function getTableCoords(clientX, clientY) {
     const rect = canvas.getBoundingClientRect();
@@ -1180,46 +1361,59 @@
   }
 
   function clampBall(b) {
-    b.x = Math.max(BALL_R + 1, Math.min(TABLE_W - BALL_R - 1, b.x));
-    b.y = Math.max(BALL_R + 1, Math.min(TABLE_H - BALL_R - 1, b.y));
+    b.x = Math.max(BALL_R + 2, Math.min(TABLE_W - BALL_R - 2, b.x));
+    b.y = Math.max(BALL_R + 2, Math.min(TABLE_H - BALL_R - 2, b.y));
   }
 
   canvas.addEventListener('pointerdown', (e) => {
     if (isSimulating) return;
     const pt = getTableCoords(e.clientX, e.clientY);
 
-    if (Math.hypot(pt.x - cueBall.x, pt.y - cueBall.y) <= BALL_R + 10) {
-      dragTarget = 'cue';
-    } else if (showTargetBall && Math.hypot(pt.x - objBall.x, pt.y - objBall.y) <= BALL_R + 10) {
-      dragTarget = 'obj';
+    if (!cueBall.potted && Math.hypot(pt.x - cueBall.x, pt.y - cueBall.y) <= BALL_R + 10) {
+      dragState = 'cue';
     } else {
-      dragTarget = 'aim';
-      updateAimFromPoint(pt.x, pt.y);
+      let foundIdx = -1;
+      for (let i = targetBalls.length - 1; i >= 0; i--) {
+        const tb = targetBalls[i];
+        if (!tb.potted && Math.hypot(pt.x - tb.x, pt.y - tb.y) <= BALL_R + 10) {
+          foundIdx = i;
+          break;
+        }
+      }
+      if (foundIdx !== -1) {
+        dragState = { type: 'target', index: foundIdx };
+      } else {
+        dragState = 'aim';
+        updateAimFromPoint(pt.x, pt.y);
+      }
     }
     canvas.setPointerCapture(e.pointerId);
   });
 
   canvas.addEventListener('pointermove', (e) => {
-    if (!dragTarget || isSimulating) return;
+    if (!dragState || isSimulating) return;
     const pt = getTableCoords(e.clientX, e.clientY);
 
-    if (dragTarget === 'cue') {
+    if (dragState === 'cue') {
       cueBall.x = pt.x;
       cueBall.y = pt.y;
       clampBall(cueBall);
+      saveCurrentPositions();
       render();
-    } else if (dragTarget === 'obj') {
-      objBall.x = pt.x;
-      objBall.y = pt.y;
-      clampBall(objBall);
+    } else if (typeof dragState === 'object' && dragState.type === 'target') {
+      const tb = targetBalls[dragState.index];
+      tb.x = pt.x;
+      tb.y = pt.y;
+      clampBall(tb);
+      saveCurrentPositions();
       render();
-    } else if (dragTarget === 'aim') {
+    } else if (dragState === 'aim') {
       updateAimFromPoint(pt.x, pt.y);
     }
   });
 
   canvas.addEventListener('pointerup', () => {
-    dragTarget = null;
+    dragState = null;
   });
 
   function updateAimFromPoint(tx, ty) {
@@ -1251,7 +1445,7 @@
     render();
   });
 
-  // Điều khiển Spin Pad (Áp phê)
+  // Spin Pad
   let draggingSpin = false;
   function updateSpinFromEvent(e) {
     const rect = spinPad.getBoundingClientRect();
@@ -1306,33 +1500,57 @@
     render();
   });
 
-  // Các nút thanh công cụ
+  // Thêm bi chắn (tối đa 9 bi)
+  document.getElementById('addBallBtn').addEventListener('click', () => {
+    if (isSimulating || targetBalls.length >= 9) return;
+    const nextId = targetBalls.length + 1;
+    const style = BALL_STYLES[(nextId - 1) % BALL_STYLES.length];
+    // Đặt vị trí không đè lên bi có sẵn
+    let nx = 375 + ((nextId * 75) % 450);
+    let ny = 150 + ((nextId * 65) % 240);
+    targetBalls.push({ id: nextId, x: nx, y: ny, vx: 0, vy: 0, potted: false, style });
+    saveCurrentPositions();
+    render();
+  });
+
+  // Bớt bi chắn (giữ lại ít nhất 1 bi)
+  document.getElementById('removeBallBtn').addEventListener('click', () => {
+    if (isSimulating || targetBalls.length <= 1) return;
+    targetBalls.pop();
+    saveCurrentPositions();
+    render();
+  });
+
   document.getElementById('scaleMode').addEventListener('change', (e) => {
     scaleMode = e.target.value;
     render();
   });
 
-  document.getElementById('toggleTargetBtn').addEventListener('click', (e) => {
-    showTargetBall = !showTargetBall;
-    e.target.textContent = showTargetBall ? '🔴 Bi Mục Tiêu: BẬT' : '⚪ Bi Mục Tiêu: TẮT';
-    e.target.classList.toggle('active-toggle', showTargetBall);
-    render();
-  });
-
   document.getElementById('toggleGridBtn').addEventListener('click', (e) => {
     showGrid = !showGrid;
-    e.target.textContent = showGrid ? '📏 Lưới Nút: BẬT' : '📏 Lưới Nút: TẮT';
+    e.target.textContent = showGrid ? '📏 Lưới: BẬT' : '📏 Lưới: TẮT';
     e.target.classList.toggle('active-toggle', showGrid);
     render();
   });
 
+  // Xếp lại bàn về vị trí trước cú bắn
   document.getElementById('resetPosBtn').addEventListener('click', () => {
     if (animFrameId) cancelAnimationFrame(animFrameId);
     isSimulating = false;
-    cueBall.x = 250;
-    cueBall.y = 375;
-    objBall.x = 625;
-    objBall.y = 125;
+    cueBall.x = savedSetup.cue.x;
+    cueBall.y = savedSetup.cue.y;
+    cueBall.potted = false;
+
+    targetBalls = savedSetup.targets.map(t => ({
+      id: t.id,
+      x: t.x,
+      y: t.y,
+      vx: 0,
+      vy: 0,
+      potted: false,
+      style: BALL_STYLES[(t.id - 1) % BALL_STYLES.length]
+    }));
+
     statusTag.textContent = '● SẴN SÀNG';
     statusTag.style.color = '#10b981';
     render();
@@ -1340,47 +1558,55 @@
 
   document.getElementById('shootBtn').addEventListener('click', fireShot);
 
-  // Bài tập mẫu luyện nút số
+  // Các thế bi mẫu luyện tập
   document.getElementById('presetSelect').addEventListener('change', (e) => {
     const v = e.target.value;
     if (animFrameId) cancelAnimationFrame(animFrameId);
     isSimulating = false;
+    cueBall.potted = false;
 
-    if (v === '1bank') {
-      cueBall.x = 250; cueBall.y = 375; // Nút 2 dưới
-      objBall.x = 750; objBall.y = 375; // Nút 6 dưới
-      showTargetBall = true;
-      shotPower = 65;
-      setAngle(-53.1); // Ngắm thẳng nút 4 băng trên
-    } else if (v === 'corner5') {
+    if (v === 'pot_direct') {
+      cueBall.x = 250; cueBall.y = 310;
+      targetBalls = [
+        { id: 1, x: 750, y: 125, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] }
+      ];
+      shotPower = 72;
+      setAngle(-20.3);
+    } else if (v === 'bank_1rail') {
+      cueBall.x = 250; cueBall.y = 375;
+      targetBalls = [
+        { id: 1, x: 750, y: 250, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] }
+      ];
+      shotPower = 78;
+      setAngle(-43.6);
+    } else if (v === 'escape_block') {
+      // 2 bi đỏ/xanh chắn thẳng đường, phải a băng dưới để ăn bi vàng số 1
+      cueBall.x = 250; cueBall.y = 250;
+      targetBalls = [
+        { id: 1, x: 750, y: 150, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] },
+        { id: 2, x: 470, y: 205, vx: 0, vy: 0, potted: false, style: BALL_STYLES[1] },
+        { id: 3, x: 520, y: 185, vx: 0, vy: 0, potted: false, style: BALL_STYLES[2] }
+      ];
+      shotPower = 82;
+      setAngle(32.5);
+    } else if (v === 'corner5_pot') {
       scaleMode = '50';
       document.getElementById('scaleMode').value = '50';
-      cueBall.x = 125; cueBall.y = 430; // Xuất phát gần số 50 góc dưới
-      objBall.x = 875; objBall.y = 375;
-      showTargetBall = true;
-      shotPower = 82;
+      cueBall.x = 125; cueBall.y = 430;
+      targetBalls = [
+        { id: 1, x: 875, y: 410, vx: 0, vy: 0, potted: false, style: BALL_STYLES[0] },
+        { id: 2, x: 500, y: 420, vx: 0, vy: 0, potted: false, style: BALL_STYLES[1] }
+      ];
+      shotPower = 85;
       setAngle(-42.0);
-    } else if (v === '2rail') {
-      cueBall.x = 250; cueBall.y = 250;
-      showTargetBall = false;
-      document.getElementById('toggleTargetBtn').textContent = '⚪ Bi Mục Tiêu: TẮT';
-      document.getElementById('toggleTargetBtn').classList.remove('active-toggle');
-      shotPower = 75;
-      setAngle(-26.5);
-    } else if (v === 'cutshot') {
-      cueBall.x = 250; cueBall.y = 250;
-      objBall.x = 625; objBall.y = 210;
-      showTargetBall = true;
-      shotPower = 60;
-      setAngle(-6.2);
     }
 
     powerSlider.value = shotPower;
     powerVal.textContent = `${shotPower}%`;
+    saveCurrentPositions();
     render();
   });
 
-  // Phím tắt bàn phím
   window.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
       e.preventDefault();
@@ -1394,7 +1620,7 @@
     }
   });
 
-  // Khởi tạo khung hình đầu tiên
+  saveCurrentPositions();
   render();
 })();
 </script>
